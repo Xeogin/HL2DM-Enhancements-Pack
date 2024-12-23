@@ -2,11 +2,14 @@
 {
 	"Plugins"
 	{
-		"xpos"	"230"
-		"ypos"	"60"
-		"wide"	"650"
-		"tall"	"470"
-		"title"	"#Frame_Untitled"
+		"xpos"				"230"
+		"ypos"				"60"
+		"wide"				"650"
+		"tall"				"470"
+		"title"				"#Frame_Untitled"
+		"title_font"		"DefaultAutoScale"
+		"titleTextInsetX"	"3"
+		"titleTextInsetY"	"5"
 	}
 
 	"PluginMenu"
