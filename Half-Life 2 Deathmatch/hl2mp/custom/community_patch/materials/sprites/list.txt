@@ -1,6 +1,0 @@
-#define PHYSCANNON_BEAM_SPRITE "sprites/orangelight1.vmt"
-#define PHYSCANNON_BEAM_SPRITE_NOZ "sprites/orangelight1_noz.vmt"
-#define PHYSCANNON_GLOW_SPRITE "sprites/glow04_noz"
-#define PHYSCANNON_ENDCAP_SPRITE "sprites/orangeflare1"
-#define PHYSCANNON_CENTER_GLOW "sprites/orangecore1"
-#define PHYSCANNON_BLAST_SPRITE "sprites/orangecore2"

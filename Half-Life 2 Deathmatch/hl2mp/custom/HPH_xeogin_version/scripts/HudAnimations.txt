@@ -1,0 +1,902 @@
+//	Sample animation script
+//
+//	Commands:
+//	Animate <panel name> <variable> <target value> <interpolator> <start time> <duration>
+//		Variables:
+//			FgColor
+//			BgColor
+//			Position
+//			Size
+//			Blur            (hud panels only)
+//			TextColor       (hud panels only)
+//			Ammo2Color      (hud panels only) (HudAmmo.Ammo2Color animation doesn't work, HudAmmo.FgColor overwriting value :/)
+//			Alpha           (hud weapon selection only)
+//			SelectionAlpha  (hud weapon selection only)
+//			TextScan        (hud weapon selection only)
+//
+//		Interpolator:
+//			Linear
+//			Accel   - Starts moving slow, ends fast
+//			Deaccel - Starts moving fast, ends slow
+//
+//	RunEvent <event name> <start time>
+//		starts another even running at the specified time
+//
+//	StopEvent <event name> <start time>
+//		stops another event that is current running at the specified time
+//
+//	StopAnimation <panel name> <variable> <start time>
+//		stops all animations refering to the specified variable in the specified panel
+//
+//	StopPanelAnimations <panel name> <start time>
+//		stops all active animations operating on the specified panel
+//
+//	Useful game console commands:
+//	cl_Animationinfo <hudelement name> or <panelname>
+//		displays all the animatable variables for the hud element
+
+event LevelInit
+{
+}
+
+
+//*** Health ***************************************************************************//
+event Custom_HealthPickUp // new
+{
+	// Health icon animations
+	Animate  HudHealthIcon  FgColor  "Color_HealthIcon_Fg_Increased"  Deaccel  0.0  0.2
+	Animate  HudHealthIcon  FgColor  "Color_HealthIcon_Fg"            Deaccel  0.2  0.4
+
+	// Face icons animations
+	// Not used in this HUD
+
+	// Health animations
+	Animate  HudHealth  FgColor  "Color_Health_Fg_Increased"  Deaccel  0.0  0.2
+	Animate  HudHealth  FgColor  "Color_Health_Fg"            Deaccel  0.2  0.4
+	Animate  HudHealth  BgColor  "Color_Health_Bg_Increased"  Deaccel  0.0  0.2
+	Animate  HudHealth  BgColor  "Color_Health_Bg"            Deaccel  0.2  0.4
+	Animate  HudHealth  Blur     "2"                          Deaccel  0.0  0.2
+	Animate  HudHealth  Blur     "0"                          Deaccel  0.2  0.4
+}
+
+event Custom_HealthPickUp_StopAndHide // new
+{
+	StopEvent  HealthIncreasedAbove20  0.0
+	StopEvent  HealthIncreasedBelow20  0.0
+	StopEvent  Custom_HealthPickUp     0.0
+
+	// Health animations
+	Animate  HudHealth  FgColor  "Color_Health_Fg"  Linear  0.0  0.0
+	Animate  HudHealth  BgColor  "Color_Health_Bg"  Linear  0.0  0.0
+	Animate  HudHealth  Blur     "0"                Linear  0.0  0.0
+}
+
+event Custom_HealthDamageTaken_StopAndHide // new
+{
+	StopEvent  HealthDamageTaken  0.0
+
+	// Health animations
+	Animate  HudHealth  FgColor  "Color_Health_Fg"  Linear  0.0  0.0
+	Animate  HudHealth  BgColor  "Color_Health_Bg"  Linear  0.0  0.0
+	Animate  HudHealth  Blur     "0"                Linear  0.0  0.0
+}
+
+event Custom_HealthPulse_StopAndHide // new
+{
+	StopEvent  HealthLow    0.0
+	StopEvent  HealthPulse  0.0
+	StopEvent  HealthLoop   0.0
+
+	// Health animations
+	Animate  HudHealth  FgColor  "Color_Health_Fg"  Linear  0.0  0.0
+	Animate  HudHealth  BgColor  "Color_Health_Bg"  Linear  0.0  0.0
+	Animate  HudHealth  Blur     "0"                Linear  0.0  0.0
+}
+
+event HealthIncreasedAbove20
+{
+	RunEvent  Custom_HealthPulse_StopAndHide  0.0
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// This is initial point of HUD elements showing. All elements are moved to their //
+	// places due to the blind area of the screen so that they are not displayed in   //
+	// the Spectator mode or menu 3D scenes.                                          //
+	////////////////////////////////////////////////////////////////////////////////////
+	// Show standard elements
+	Animate  HudHealth         Position  "1 r32"  Linear  0.0  0.0
+	Animate  HudSuit           Position  "134 r32"  Linear  0.0  0.0
+	Animate  HudSuitPower      Position  "1 r45"  Linear  0.0  0.0
+	Animate  HudAmmo           Position  "r156 r45"  Linear  0.0  0.0
+	Animate  HudAmmoSecondary  Position  "r52 r32"  Linear  0.0  0.0
+	Animate  TeamDisplay       Position  "1 12"  Linear  0.0  0.0
+
+	// Fix for animated Aux Power
+	// Not used in this HUD
+
+	// Show Health icon
+	Animate  HudHealthIcon  Position  "1 r32"  Linear  0.0  0.0
+	Animate  HudHealthIcon  Alpha     "255"  Linear  0.0  0.0
+
+	// Show Armor icon
+	Animate  HudSuitIcon  Position  "134 r32"  Linear  0.0  0.0
+	Animate  HudSuitIcon  Alpha     "255"  Linear  0.0  0.0
+
+	// Show Face icons
+	// Not used in this HUD
+
+	// Show AmmoSec text
+	// Not used in this HUD
+
+	// Show weapon ammo icons
+	Animate  HudCrosshair  Alpha  "255"  Linear  0.0  0.0
+
+	// Show custom crosshairs
+	// In HL2DM custom crosshairs are always visible if they are enabled
+	////////////////////////////////////////////////////////////////////////////////////
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// Event queue bugs: sometimes, when receiving damage, for unknown reason, the    //
+	// HealthIncreasedAbove20 event occurs. In order for it to have time to be        //
+	// canceled from damage-taking events, you need to make it a small delay of 0.05. //
+	// And this will only solve part, not all of these problems :/                    //
+	////////////////////////////////////////////////////////////////////////////////////
+	RunEvent  Custom_HealthPickUp  0.05
+}
+
+event HealthIncreasedBelow20
+{
+	// Disabled
+}
+
+event HealthDamageTaken
+{
+	// Game bug prevention: see note inside HealthIncreasedAbove20
+	RunEvent  Custom_HealthPickUp_StopAndHide  0.0
+
+	// Health icon animations
+	Animate  HudHealthIcon  FgColor  "Color_HealthIcon_Fg_DamageTaken"  Deaccel  0.0  0.4
+	Animate  HudHealthIcon  FgColor  "Color_HealthIcon_Fg"              Deaccel  0.4  0.8
+
+	// Face icons animations
+	// Not used in this HUD
+
+	// Health animations
+	Animate  HudHealth  FgColor  "Color_Health_Fg_DamageTaken"  Deaccel  0.0  0.4
+	Animate  HudHealth  FgColor  "Color_Health_Fg"              Deaccel  0.4  0.8
+	Animate  HudHealth  BgColor  "Color_Health_Bg_DamageTaken"  Deaccel  0.0  0.4
+	Animate  HudHealth  BgColor  "Color_Health_Bg"              Deaccel  0.4  0.8
+	Animate  HudHealth  Blur     "2"                            Deaccel  0.0  0.4
+	Animate  HudHealth  Blur     "0"                            Deaccel  0.4  0.8
+
+	// Fix for animated Aux Power
+	// Not used in this HUD
+}
+
+event HealthLow // health has been damaged to below 20%
+{
+	// Game bug: HealthLow event sometimes call when player switches to spectators :/
+
+	RunEvent  Custom_HealthPickUp_StopAndHide  0.0
+	RunEvent  HealthPulse                      0.8
+}
+
+event HealthPulse
+{
+	// Health icon animations
+	Animate  HudHealthIcon  FgColor  "Color_HealthIcon_Fg_Pulse"  Deaccel  0.0  0.2
+	Animate  HudHealthIcon  FgColor  "Color_HealthIcon_Fg"        Deaccel  0.2  0.4
+
+	// Face icons animations
+	// Not used in this HUD
+
+	// Health animations
+	Animate  HudHealth  FgColor  "Color_Health_Fg_Pulse"  Deaccel  0.0  0.2
+	Animate  HudHealth  FgColor  "Color_Health_Fg"        Deaccel  0.2  0.4
+	Animate  HudHealth  BgColor  "Color_Health_Bg_Pulse"  Deaccel  0.0  0.2
+	Animate  HudHealth  BgColor  "Color_Health_Bg"        Deaccel  0.2  0.4
+	Animate  HudHealth  Blur     "2"                      Deaccel  0.0  0.2
+	Animate  HudHealth  Blur     "0"                      Deaccel  0.2  0.4
+
+	RunEvent  HealthLoop  0.4
+}
+
+event HealthLoop
+{
+	RunEvent  HealthPulse  0.1
+}
+//**************************************************************************************//
+
+
+//*** Armor ****************************************************************************//
+event Custom_SuitPickUp // new
+{
+	// Armor icon animations
+	Animate  HudSuitIcon  FgColor  "Color_SuitPowerIcon_Fg_Increased"  Deaccel  0.0  0.2
+	Animate  HudSuitIcon  FgColor  "Color_SuitPowerIcon_Fg"            Deaccel  0.2  0.4
+
+	// Armor animations
+	Animate  HudSuit  FgColor  "Color_SuitPower_Fg_Increased"  Deaccel  0.0  0.2
+	Animate  HudSuit  FgColor  "Color_SuitPower_Fg"            Deaccel  0.2  0.4
+	Animate  HudSuit  BgColor  "Color_SuitPower_Bg_Increased"  Deaccel  0.0  0.2
+	Animate  HudSuit  BgColor  "Color_SuitPower_Bg"            Deaccel  0.2  0.4
+	Animate  HudSuit  Blur     "2"                             Deaccel  0.0  0.2
+	Animate  HudSuit  Blur     "0"                             Deaccel  0.2  0.4
+}
+
+event Custom_SuitPickUp_StopAndHide // new
+{
+	StopEvent  SuitPowerIncreasedAbove20  0.0
+	StopEvent  SuitPowerIncreasedBelow20  0.0
+	StopEvent  Custom_SuitPickUp          0.0
+
+	// Armor animations
+	Animate  HudSuit  Blur  "0"  Linear  0.0  0.0
+}
+
+event Custom_SuitDamage_StopAndHide // new
+{
+	StopEvent  SuitDamageTaken  0.0
+
+	// Armor animations
+	Animate  HudSuit  Blur  "0"  Linear  0.0  0.0
+}
+
+event SuitPowerIncreasedAbove20
+{
+	StopEvent  SuitPowerZero      0.0
+	RunEvent   Custom_SuitPickUp  0.0
+}
+
+event SuitPowerIncreasedBelow20
+{
+	StopEvent  SuitPowerZero      0.0
+	RunEvent   Custom_SuitPickUp  0.0
+}
+
+event SuitDamageTaken
+{
+	RunEvent  Custom_SuitPickUp_StopAndHide  0.0
+
+	// Armor icon animations
+	Animate  HudSuitIcon  FgColor  "Color_SuitPowerIcon_Fg_DamageTaken"  Deaccel  0.0  0.4
+	Animate  HudSuitIcon  FgColor  "Color_SuitPowerIcon_Fg"              Deaccel  0.4  0.8
+
+	// Armor animations
+	Animate  HudSuit  FgColor  "Color_SuitPower_Fg_DamageTaken"  Deaccel  0.0  0.4
+	Animate  HudSuit  FgColor  "Color_SuitPower_Fg"              Deaccel  0.4  0.8
+	Animate  HudSuit  BgColor  "Color_SuitPower_Bg_DamageTaken"  Deaccel  0.0  0.4
+	Animate  HudSuit  BgColor  "Color_SuitPower_Bg"              Deaccel  0.4  0.8
+	Animate  HudSuit  Blur     "2"                               Deaccel  0.0  0.4
+	Animate  HudSuit  Blur     "0"                               Deaccel  0.4  0.8
+}
+
+event SuitArmorLow // suit armor has been damaged to below 20%
+{
+	RunEvent  Custom_SuitPickUp_StopAndHide  0.0
+}
+
+event SuitPowerZero
+{
+	RunEvent   Custom_SuitDamage_StopAndHide  0.0
+	StopEvent  SuitArmorLow                   0.0
+	RunEvent   Custom_SuitPickUp_StopAndHide  0.0
+
+	// Armor icon animations
+	Animate  HudSuitIcon  FgColor  "Color_SuitPowerIcon_Fg_Empty"  Deaccel  0.0  0.4
+
+	// Armor animations
+	Animate  HudSuit  FgColor  "Color_SuitPower_Fg_Empty"  Deaccel  0.0  0.4
+	Animate  HudSuit  BgColor  "Color_SuitPower_Bg_Empty"  Deaccel  0.0  0.4
+}
+//**************************************************************************************//
+
+
+//*** AuxPower *************************************************************************//
+event SuitAuxPowerMax // = 100 %
+{
+	// Game bug: SuitAuxPowerMax event sometimes call when player switches to spectators :/
+
+	Animate  HudSuitPower  AuxPowerColor  "Color_HudAuxPower_Fg_100"  Deaccel  0.0  0.4
+	Animate  HudSuitPower  BgColor        "Color_HudAuxPower_Bg_100"  Deaccel  0.0  0.4
+}
+
+event SuitAuxPowerNotMax // < 100 %
+{
+	Animate  HudSuitPower  AuxPowerColor  "Color_HudAuxPower_Fg_Not100"  Linear  0.0  0.4
+	Animate  HudSuitPower  BgColor        "Color_HudAuxPower_Bg_Not100"  Linear  0.0  0.4
+}
+
+event SuitAuxPowerDecreasedBelow25 // < 25 %
+{
+	Animate  HudSuitPower  AuxPowerColor  "Color_HudAuxPower_Fg_Below25"  Accel   0.0  0.4
+	Animate  HudSuitPower  BgColor        "Color_HudAuxPower_Bg_Below25"  Accel   0.0  0.4
+}
+
+event SuitAuxPowerIncreasedAbove25 // > 25 %
+{
+	Animate  HudSuitPower  AuxPowerColor  "Color_HudAuxPower_Fg_Above25"  Linear  0.0  0.4
+	Animate  HudSuitPower  BgColor        "Color_HudAuxPower_Bg_Above25"  Linear  0.0  0.4
+}
+
+event SuitAuxPowerNoItemsActive // energy use button released
+{
+	// Not used in this HUD
+}
+
+event SuitAuxPowerOneItemActive // energy use button pressed, there are 1 icons to display
+{
+	// Not used in this HUD
+}
+
+event SuitAuxPowerTwoItemsActive // energy use button pressed, there are 2 icons to display
+{
+	// Not used in this HUD
+}
+
+event SuitAuxPowerThreeItemsActive // energy use button pressed, there are 3 icons to display
+{
+	// Not used in this HUD
+}
+//**************************************************************************************//
+
+
+//*** Damage ***************************************************************************//
+event HudTakeDamageFront
+{
+	// Stop and hide Health and Suit pickup animations
+	// 0.05 delay to able stop false buggy call of HealthIncreasedAbove20 event
+	RunEvent  Custom_HealthPickUp_StopAndHide  0.05
+	RunEvent  Custom_SuitPickUp_StopAndHide    0.05
+}
+
+event HudTakeDamageLeft
+{
+	// Stop and hide Health and Suit pickup animations
+	// 0.05 delay to able stop false buggy call of HealthIncreasedAbove20 event
+	RunEvent  Custom_HealthPickUp_StopAndHide  0.05
+	RunEvent  Custom_SuitPickUp_StopAndHide    0.05
+
+	// Left damage indicator
+	Animate  HudDamageIndicator  DmgColorLeft  "Color_DamageIndicators_ZeroAlpha"  Linear   0.0  0.0
+	Animate  HudDamageIndicator  DmgColorLeft  "Color_DamageIndicators"            Linear   0.0  0.250
+	Animate  HudDamageIndicator  DmgColorLeft  "Color_DamageIndicators_ZeroAlpha"  Deaccel  0.250  0.500
+}
+
+event HudTakeDamageRight
+{
+	// Stop and hide Health and Suit pickup animations
+	// 0.05 delay to able stop false buggy call of HealthIncreasedAbove20 event
+	RunEvent  Custom_HealthPickUp_StopAndHide  0.05
+	RunEvent  Custom_SuitPickUp_StopAndHide    0.05
+
+	// Right damage indicator
+	Animate  HudDamageIndicator  DmgColorRight  "Color_DamageIndicators_ZeroAlpha"  Linear   0.0  0.0
+	Animate  HudDamageIndicator  DmgColorRight  "Color_DamageIndicators"            Linear   0.0  0.250
+	Animate  HudDamageIndicator  DmgColorRight  "Color_DamageIndicators_ZeroAlpha"  Deaccel  0.250  0.500
+}
+
+event HudTakeDamageBehind
+{
+	RunEvent  HudTakeDamageLeft   0.0
+	RunEvent  HudTakeDamageRight  0.0
+}
+
+event HudTakeDamageHighLeft
+{
+	// Stop and hide Health and Suit pickup animations
+	// 0.05 delay to able stop false buggy call of HealthIncreasedAbove20 event
+	RunEvent  Custom_HealthPickUp_StopAndHide  0.05
+	RunEvent  Custom_SuitPickUp_StopAndHide    0.05
+
+	// Left damage indicator
+	Animate  HudDamageIndicator  DmgColorLeft  "Color_DamageIndicators_ZeroAlpha"  Linear   0.0  0.0
+	Animate  HudDamageIndicator  DmgColorLeft  "Color_DamageIndicators"            Linear   0.0  0.250
+	Animate  HudDamageIndicator  DmgColorLeft  "Color_DamageIndicators_ZeroAlpha"  Deaccel  0.250  0.500
+}
+
+event HudTakeDamageHighRight
+{
+	// Stop and hide Health and Suit pickup animations
+	// 0.05 delay to able stop false buggy call of HealthIncreasedAbove20 event
+	RunEvent  Custom_HealthPickUp_StopAndHide  0.05
+	RunEvent  Custom_SuitPickUp_StopAndHide    0.05
+
+	// Right damage indicator
+	Animate  HudDamageIndicator  DmgColorRight  "Color_DamageIndicators_ZeroAlpha"  Linear   0.0  0.0
+	Animate  HudDamageIndicator  DmgColorRight  "Color_DamageIndicators"            Linear   0.0  0.250
+	Animate  HudDamageIndicator  DmgColorRight  "Color_DamageIndicators_ZeroAlpha"  Deaccel  0.250  0.500
+}
+
+event HudTakeDamageHigh
+{
+	// Stop and hide Health and Suit pickup animations
+	// 0.05 delay to able stop false buggy call of HealthIncreasedAbove20 event
+	RunEvent  Custom_HealthPickUp_StopAndHide  0.05
+	RunEvent  Custom_SuitPickUp_StopAndHide    0.05
+
+	// High damage screen fill disabled
+}
+
+event HudTakeDamageDrown
+{
+	RunEvent  HudTakeDamageBehind  0.0
+}
+
+event HudTakeDamageBurn
+{
+	// FIXED: No more fullscreen burn damage
+}
+
+event HudTakeDamageRadiation
+{
+	// FIXED: No more fullscreen radiation damage
+
+	RunEvent  HudTakeDamageBehind  0.0
+}
+
+event HudPlayerDeath // not all death events do this, but at least some
+{
+	// Stop and hide all Health animations
+	RunEvent  Custom_HealthDamageTaken_StopAndHide  0.0
+	RunEvent  Custom_HealthPulse_StopAndHide        0.0
+	RunEvent  Custom_HealthPickUp_StopAndHide       0.0
+
+	// Hide Health icon
+	Animate  HudHealthIcon  FgColor   "0 0 0 0"  Linear  0.0  0.0
+	Animate  HudHealthIcon  Alpha     "0"        Linear  0.0  0.0
+	Animate  HudHealthIcon  Position  "r0 r0"    Linear  0.0  0.0
+
+	// Hide Health
+	Animate  HudHealth  FgColor  "0 0 0 0"  Linear  0.0  0.0
+	Animate  HudHealth  BgColor  "0 0 0 0"  Linear  0.0  0.0
+
+	// Stop and hide all Armor animations
+	StopEvent  SuitPowerZero                  0.0
+	RunEvent   Custom_SuitDamage_StopAndHide  0.0
+	RunEvent   Custom_SuitPickUp_StopAndHide  0.0
+
+	// Hide Armor icon
+	Animate  HudSuitIcon  FgColor   "Color_SuitPowerIcon_Fg_Empty"  Linear  0.0  0.0
+	Animate  HudSuitIcon  Alpha     "0"                             Linear  0.0  0.0
+	Animate  HudSuitIcon  Position  "r0 r0"                         Linear  0.0  0.0
+
+	// Hide Armor
+	Animate  HudSuit  FgColor   "Color_SuitPower_Fg_Empty"  Linear  0.0  0.0
+	Animate  HudSuit  BgColor   "Color_SuitPower_Bg_Empty"  Linear  0.0  0.0
+	Animate  HudSuit  Position  "r0 r0"                     Linear  0.0  0.0
+
+	// Hide Face icons
+	// Not used in this HUD
+
+	// Stop and hide all AuxPower animations
+	StopEvent  SuitAuxPowerMax               0.0
+	StopEvent  SuitAuxPowerNotMax            0.0
+	StopEvent  SuitAuxPowerDecreasedBelow25  0.0
+	StopEvent  SuitAuxPowerIncreasedAbove25  0.0
+
+	// Hide AuxPower
+	Animate  HudSuitPower  AuxPowerColor  "0 0 0 0"  Linear  0.0  0.0
+	Animate  HudSuitPower  BgColor        "0 0 0 0"  Linear  0.0  0.0
+
+	// Hide AmmoSec text
+	// Not used in this HUD
+
+	// Hide weapon ammo icons
+	Animate  HudCrosshair  Alpha  "0"  Linear  0.0  0.0
+
+	// Death screen fill animations
+	Animate  HudDamageIndicator  DmgFullscreenColor  "Color_DamageScreenFill_ZeroAlpha"  Linear  0.0  0.0
+	Animate  HudDamageIndicator  DmgFullscreenColor  "Color_DamageScreenFill"            Linear  0.0  2.400
+}
+
+event HudTakeDamagePoison
+{
+	// FIXED: No more fullscreen poison damage
+}
+
+event PoisonDamageTaken
+{
+	Animate  HudPoisonDamageIndicator  Alpha  "255"  Linear  0.0  1.0
+
+	RunEvent  PoisonLoop  0.0
+}
+
+event PoisonDamageCured
+{
+	StopEvent  PoisonDamageTaken  0.0
+	StopEvent  PoisonLoop         0.0
+	StopEvent  PoisonPulse        0.0
+
+	Animate  HudPoisonDamageIndicator  Alpha  "0"  Linear  0.0  1.0
+}
+
+event PoisonPulse
+{
+	Animate  HudPoisonDamageIndicator  TextColor  "Color_TextSelected"  Linear   0.0  0.1
+	Animate  HudPoisonDamageIndicator  TextColor  "Color_Text"          Deaccel  0.1  0.8
+	Animate  HudPoisonDamageIndicator  BgColor    "Color_TipFlashedBg"  Linear   0.0  0.1
+	Animate  HudPoisonDamageIndicator  BgColor    "Color_TipBg"         Deaccel  0.1  0.8
+
+	RunEvent  PoisonLoop  0.8
+}
+
+event PoisonLoop // call to loop PoisonLoop
+{
+	RunEvent  PoisonPulse  0.0
+}
+//**************************************************************************************//
+
+
+//*** Team *****************************************************************************//
+// FIXED: The animation starts when you run. If you disable it, the team name will always be shown.
+event FadeOutTeamLine
+{
+	// Make the TeamDisplay invisible
+	//Animate  TeamDisplay  Alpha  "0"  Linear  0.0  0.25
+}
+
+event FadeInTeamLine
+{
+	// Make the TeamDisplay visible
+	//Animate  TeamDisplay  Alpha  "255"  Accel  0.0  0.5
+}
+//**************************************************************************************//
+
+
+//*** Ammo *****************************************************************************//
+event Custom_AmmoPickUp_StopAndHide // new
+{
+	StopEvent  AmmoIncreased  0.0
+
+	Animate  HudAmmo  Blur  "0"  Linear  0.0  0.0
+}
+
+event Custom_Ammo2PickUp_StopAndHide // new
+{
+	StopEvent  Ammo2Increased  0.0
+}
+
+event Custom_AmmoSecPickUp_StopAndHide // new
+{
+	StopEvent  AmmoSecondaryIncreased  0.0
+
+	Animate  HudAmmoSecondary  Blur  "0"  Linear  0.0  0.0
+}
+
+event AmmoIncreased // ammo has been picked up
+{
+	StopEvent  AmmoDecreased  0.0
+	StopEvent  AmmoEmpty      0.0
+
+	Animate  HudAmmo  Blur     "2"                        Deaccel  0.0  0.2
+	Animate  HudAmmo  Blur     "0"                        Deaccel  0.2  0.4
+	Animate  HudAmmo  FgColor  "Color_Ammo_Fg_Increased"  Deaccel  0.0  0.2
+	Animate  HudAmmo  FgColor  "Color_Ammo_Fg"            Deaccel  0.2  0.4
+	Animate  HudAmmo  BgColor  "Color_Ammo_Bg_Increased"  Deaccel  0.0  0.2
+	Animate  HudAmmo  BgColor  "Color_Ammo_Bg"            Deaccel  0.2  0.4
+}
+
+event AmmoDecreased // ammo has been decreased, but there is still some remaining
+{
+	RunEvent  Custom_AmmoPickUp_StopAndHide  0.0
+
+	Animate  HudAmmo  Blur     "1"                        Deaccel  0.0  0.2
+	Animate  HudAmmo  Blur     "0"                        Deaccel  0.2  0.4
+	Animate  HudAmmo  FgColor  "Color_Ammo_Fg_Decreased"  Deaccel  0.0  0.2
+	Animate  HudAmmo  FgColor  "Color_Ammo_Fg"            Deaccel  0.2  0.4
+	Animate  HudAmmo  BgColor  "Color_Ammo_Bg_Decreased"  Deaccel  0.0  0.2
+	Animate  HudAmmo  BgColor  "Color_Ammo_Bg"            Deaccel  0.2  0.4
+}
+
+event AmmoEmpty
+{
+	RunEvent   Custom_AmmoPickUp_StopAndHide  0.0
+	StopEvent  AmmoDecreased                  0.0
+
+	Animate  HudAmmo  Blur     "2"                    Deaccel  0.0  0.4
+	Animate  HudAmmo  Blur     "0"                    Deaccel  0.4  0.8
+	Animate  Hudammo  FgColor  "Color_Ammo_Fg_Empty"  Deaccel  0.0  0.4
+	Animate  Hudammo  BgColor  "Color_Ammo_Bg_Empty"  Deaccel  0.0  0.4
+}
+
+event Ammo2Increased
+{
+	StopEvent  Ammo2Decreased  0.0
+	StopEvent  Ammo2Empty      0.0
+
+	// HudAmmo.Ammo2Color animation doesn't work, HudAmmo.FgColor overwriting value :/
+}
+
+event Ammo2Decreased
+{
+	RunEvent  Custom_Ammo2PickUp_StopAndHide  0.0
+
+	// HudAmmo.Ammo2Color animation doesn't work, HudAmmo.FgColor overwriting value :/
+}
+
+event Ammo2Empty
+{
+	RunEvent   Custom_Ammo2PickUp_StopAndHide  0.0
+	StopEvent  Ammo2Decreased                  0.0
+
+	// HudAmmo.Ammo2Color animation doesn't work, HudAmmo.FgColor overwriting value :/
+}
+
+event AmmoSecondaryIncreased
+{
+	StopEvent  AmmoSecondaryDecreased  0.0
+	StopEvent  AmmoSecondaryEmpty      0.0
+
+	Animate  HudAmmoSecondary  Blur     "2"                           Deaccel  0.0  0.2
+	Animate  HudAmmoSecondary  Blur     "0"                           Deaccel  0.2  0.4
+	Animate  HudAmmoSecondary  FgColor  "Color_AmmoSec_Fg_Increased"  Deaccel  0.0  0.2
+	Animate  HudAmmoSecondary  FgColor  "Color_Ammo_Fg"               Deaccel  0.2  0.4
+	Animate  HudAmmoSecondary  BgColor  "Color_AmmoSec_Bg_Increased"  Deaccel  0.0  0.2
+	Animate  HudAmmoSecondary  BgColor  "Color_Ammo_Bg"               Deaccel  0.2  0.4
+}
+
+event AmmoSecondaryDecreased
+{
+	RunEvent  Custom_AmmoSecPickUp_StopAndHide  0.0
+
+	Animate  HudAmmoSecondary  Blur     "1"                           Deaccel  0.0  0.2
+	Animate  HudAmmoSecondary  Blur     "0"                           Deaccel  0.2  0.4
+	Animate  HudAmmoSecondary  FgColor  "Color_AmmoSec_Fg_Decreased"  Deaccel  0.0  0.2
+	Animate  HudAmmoSecondary  FgColor  "Color_Ammo_Fg"               Deaccel  0.2  0.4
+	Animate  HudAmmoSecondary  BgColor  "Color_AmmoSec_Bg_Decreased"  Deaccel  0.0  0.2
+	Animate  HudAmmoSecondary  BgColor  "Color_Ammo_Bg"               Deaccel  0.2  0.4
+}
+
+event AmmoSecondaryEmpty
+{
+	RunEvent   Custom_AmmoSecPickUp_StopAndHide  0.0
+	StopEvent  AmmoSecondaryDecreased            0.0
+
+	Animate  HudAmmoSecondary  Blur     "2"                    Deaccel  0.0  0.4
+	Animate  HudAmmoSecondary  Blur     "0"                    Deaccel  0.4  0.8
+	Animate  HudAmmoSecondary  FgColor  "Color_Ammo_Fg_Empty"  Deaccel  0.0  0.4
+	Animate  HudAmmoSecondary  BgColor  "Color_Ammo_Bg_Empty"  Deaccel  0.0  0.4
+}
+
+event WeaponChanged // current weapon has been changed
+{
+	RunEvent   Custom_AmmoPickUp_StopAndHide     0.0
+	RunEvent   Custom_Ammo2PickUp_StopAndHide    0.0
+	RunEvent   Custom_AmmoSecPickUp_StopAndHide  0.0
+	StopEvent  AmmoDecreased                     0.0
+	StopEvent  Ammo2Decreased                    0.0
+	StopEvent  AmmoSecondaryDecreased            0.0
+	StopEvent  AmmoEmpty                         0.0
+	StopEvent  Ammo2Empty                        0.0
+	StopEvent  AmmoSecondaryEmpty                0.0
+
+	Animate  HudAmmo           FgColor  "Color_Ammo_Fg"  Linear  0.0  0.0
+	Animate  HudAmmo           BgColor  "Color_Ammo_Bg"  Linear  0.0  0.0
+	Animate  HudAmmoSecondary  FgColor  "Color_Ammo_Fg"  Linear  0.0  0.0
+	Animate  HudAmmoSecondary  BgColor  "Color_Ammo_Bg"  Linear  0.0  0.0
+}
+
+event WeaponUsesClips // ran if we just changed to a weapon that needs clip ammo
+{
+	// Disabled
+}
+
+event WeaponDoesNotUseClips // ran if we just changed to a weapon that does not use clip ammo
+{
+	// Disabled
+}
+
+event WeaponUsesSecondaryAmmo
+{
+	RunEvent             Custom_AmmoPickUp_StopAndHide     0.0
+	RunEvent             Custom_Ammo2PickUp_StopAndHide    0.0
+	RunEvent             Custom_AmmoSecPickUp_StopAndHide  0.0
+	StopEvent            AmmoSecondaryDecreased            0.0
+	StopEvent            AmmoSecondaryEmpty                0.0
+	StopPanelAnimations  HudAmmoSecondary                  0.0
+
+	Animate  HudAmmoSecondary  Alpha    "255"            Linear  0.0  0.0
+	Animate  HudAmmoSecondary  Blur     "0"              Linear  0.0  0.0
+	Animate  HudAmmoSecondary  FgColor  "Color_Ammo_Fg"  Linear  0.0  0.0
+	Animate  HudAmmoSecondary  BgColor  "Color_Ammo_Bg"  Linear  0.0  0.0
+}
+
+event WeaponDoesNotUseSecondaryAmmo
+{
+	RunEvent   Custom_AmmoPickUp_StopAndHide     0.0
+	RunEvent   Custom_Ammo2PickUp_StopAndHide    0.0
+	RunEvent   Custom_AmmoSecPickUp_StopAndHide  0.0
+	StopEvent  AmmoDecreased                     0.0
+	StopEvent  Ammo2Decreased                    0.0
+	StopEvent  AmmoSecondaryDecreased            0.0
+	StopEvent  AmmoEmpty                         0.0
+	StopEvent  Ammo2Empty                        0.0
+	StopEvent  AmmoSecondaryEmpty                0.0
+
+	Animate  HudAmmoSecondary  Alpha    "0"              Linear  0.0  0.0
+	Animate  HudAmmo           Blur     "0"              Linear  0.0  0.0
+	Animate  HudAmmo           FgColor  "Color_Ammo_Fg"  Linear  0.0  0.0
+	Animate  HudAmmo           BgColor  "Color_Ammo_Bg"  Linear  0.0  0.0
+}
+//**************************************************************************************//
+
+
+//*** Weapon selection slots ***********************************************************//
+event OpenWeaponSelectionMenu
+{
+	StopEvent  CloseWeaponSelectionMenu    0.0
+	StopEvent  WeaponPickup                0.0
+	StopEvent  FadeOutWeaponSelectionMenu  0.0
+
+	// Apply custom weapon slot colors
+	Animate  HudWeaponSelection  FgColor           "Color_WpnIcon"              Linear  0.0  0.0
+	Animate  HudWeaponSelection  SelectedFgColor   "Color_WpnIconSelected"      Linear  0.0  0.0
+	Animate  HudWeaponSelection  BoxColor          "Color_WpnBoxPanel"          Linear  0.0  0.0
+	Animate  HudWeaponSelection  SelectedBoxColor  "Color_WpnBoxPanelSelected"  Linear  0.0  0.0
+	Animate  HudWeaponSelection  EmptyBoxColor     "Color_WpnBoxPanelEmpty"     Linear  0.0  0.0
+	Animate  HudWeaponSelection  NumberColor       "Color_WpnBoxNumbers"        Linear  0.0  0.0
+	Animate  HudWeaponSelection  TextColor         "Color_WpnName"              Linear  0.0  0.0
+
+	// Make the display visible
+	Animate  HudWeaponSelection  Alpha           "255"  Linear  0.0  0.1
+	Animate  HudWeaponSelection  SelectionAlpha  "255"  Linear  0.0  0.1
+	Animate  HudWeaponSelection  TextScan        "1"    Linear  0.0  0.1
+}
+
+event CloseWeaponSelectionMenu
+{
+	// Hide the whole thing near immediately
+	Animate  HudWeaponSelection  Alpha           "0"  Linear  0.0  0.1
+	Animate  HudWeaponSelection  SelectionAlpha  "0"  Linear  0.0  0.1
+}
+
+event FadeOutWeaponSelectionMenu
+{
+	// Slowly hide the whole thing
+	Animate  HudWeaponSelection  Alpha           "0"  Linear  0.0  1.5
+	Animate  HudWeaponSelection  SelectionAlpha  "0"  Linear  0.0  1.5
+}
+//**************************************************************************************//
+
+
+//*** SuitFlashlight *******************************************************************//
+event SuitFlashlightOn
+{
+	// Animations are disabled, they don't work correctly
+}
+
+event SuitFlashlightOff
+{
+	StopEvent  SuitFlashlightOn  0.0
+
+	// Animations are disabled, they don't work correctly
+}
+//**************************************************************************************//
+
+
+//*** HintMessage **********************************************************************//
+event HintMessageShow
+{
+	StopPanelAnimations  HudHintDisplay  0.0
+
+	// Show the hints
+	Animate  HudHintDisplay  BgColor   "0 0 0 0"  Linear   0.00  0.00
+	Animate  HudHintDisplay  HintSize  "0"        Linear   0.00  0.10
+	Animate  HudHintDisplay  HintSize  "1"        Deaccel  0.10  0.30
+
+	// Flash text
+	Animate  HudHintDisplay  FgColor  "Color_TextSelected"  Linear   0.00  0.01
+	Animate  HudHintDisplay  FgColor  "Color_Text"          Deaccel  0.10  1.00
+	Animate  HudHintDisplay  FgColor  "Color_TextSelected"  Linear   1.50  0.01
+	Animate  HudHintDisplay  FgColor  "Color_Text"          Deaccel  1.60  1.00
+	Animate  HudHintDisplay  FgColor  "Color_TextSelected"  Linear   3.00  0.01
+	Animate  HudHintDisplay  FgColor  "Color_Text"          Deaccel  3.10  1.00
+
+	// Hide the panel after a while
+	Animate  HudHintDisplay  HintSize  "0"  Accel  10.20  0.30
+
+}
+
+event HintMessageHide
+{
+	Animate  HudHintDisplay  FgColor   "255 220 0 0"  Linear   0.0  0.2
+	Animate  HudHintDisplay  HintSize  "0"            Deaccel  0.2  0.3
+}
+
+event KeyHintMessageShow
+{
+	StopPanelAnimations  HudHintKeyDisplay  0.0
+
+	// Show the hints
+	Animate  HudHintKeyDisplay  BgColor   "0 0 0 0"  Linear   0.00  0.00
+	Animate  HudHintKeyDisplay  HintSize  "0"        Linear   0.00  0.10
+	Animate  HudHintKeyDisplay  HintSize  "1"        Deaccel  0.10  2.00
+	Animate  HudHintKeyDisplay  Alpha     "255"      Linear   0.00  0.01
+
+	// Flash text
+	Animate  HudHintKeyDisplay  FgColor  "Color_TextSelected"  Linear   0.00  0.01
+	Animate  HudHintKeyDisplay  FgColor  "Color_Text"          Deaccel  0.10  1.00
+	Animate  HudHintKeyDisplay  FgColor  "Color_TextSelected"  Linear   1.50  0.01
+	Animate  HudHintKeyDisplay  FgColor  "Color_Text"          Deaccel  1.60  1.00
+	Animate  HudHintKeyDisplay  FgColor  "Color_TextSelected"  Linear   3.00  0.01
+	Animate  HudHintKeyDisplay  FgColor  "Color_Text"          Deaccel  3.10  1.00
+
+	// Hide the panel after a while
+	Animate  HudHintKeyDisplay  Alpha  "0"  Accel  12.0  2.0
+}
+
+event KeyHintMessageHide
+{
+	Animate  HudHintKeyDisplay  Alpha  "0"  Linear  0.0  0.5
+}
+//**************************************************************************************//
+
+
+//*** Commentary ***********************************************************************//
+event ShowCommentary
+{
+	StopEvent  HideCommentary 0.0
+
+	Animate  HudCommentary  Alpha  "255"  Linear  0.0  0.5
+}
+
+event HideCommentary
+{
+	StopEvent  ShowCommentary  0.0
+
+	Animate  HudCommentary  Alpha  "0"  Linear  0.0  0.5
+}
+//**************************************************************************************//
+
+
+//*** SquadMember **********************************************************************//
+event SquadMemberAdded
+{
+	StopEvent  SquadMemberDied  0.0
+	StopEvent  SquadMemberLeft  0.0
+
+	Animate  HudSquadStatus  LastMemberColor  "Color_Ammo_Fg_Increased"  Linear  0.0  0.3
+	Animate  HudSquadStatus  LastMemberColor  "Color_Ammo_Fg"            Linear  0.3  0.3
+}
+
+event SquadMemberLeft
+{
+	StopEvent  SquadMemberDied   0.0
+	StopEvent  SquadMemberAdded  0.0
+
+	Animate  HudSquadStatus  LastMemberColor  "0 0 0 0"  Linear  0.0  0.5
+}
+
+event SquadMemberDied
+{
+	StopEvent  SquadMemberAdded  0.0
+	StopEvent  SquadMemberLeft   0.0
+
+	Animate  HudSquadStatus  LastMemberColor  "Color_Ammo_Fg_Empty"  Linear  0.0  0.5
+	Animate  HudSquadStatus  LastMemberColor  "0 0 0 0"              Linear  2.0  2.0
+}
+
+event SquadMembersFollowing
+{
+	StopEvent  SquadMembersStationed  0.0
+
+	Animate  HudSquadStatus  SquadTextColor  "Color_Ammo_Fg_Increased"  Linear  0.0  0.2
+	Animate  HudSquadStatus  SquadTextColor  "Color_Ammo_Fg"            Linear  0.2  0.4
+}
+
+event SquadMembersStationed
+{
+	StopEvent  SquadMembersFollowing  0.0
+
+	Animate  HudSquadStatus  SquadTextColor  "Color_Ammo_Fg"  Linear  0.5  0.5
+}
+//**************************************************************************************//
+
+
+event CraneMagnetFlash
+{
+	Animate  HudCraneMagnet  TextColor  "255 220 0 255"  Linear   0.0 0.1
+	Animate  HudCraneMagnet  TextColor  "255 220 0 160"  Deaccel  0.1 0.3
+	Animate  HudCraneMagnet  TextColor  "255 170 0 220"  Deaccel  0.4 0.3
+	Animate  HudCraneMagnet  TextColor  "255 220 0 255"  Linear   0.8 0.2
+}

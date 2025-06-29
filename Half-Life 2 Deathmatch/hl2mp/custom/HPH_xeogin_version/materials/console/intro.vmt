@@ -1,0 +1,9 @@
+"UnlitGeneric"
+{
+	"$basetexture"    "console/background01" // <-- here is a game bug, only the name "background01" works
+	"$vertexcolor"    1
+	"$vertexalpha"    1
+	"$ignorez"        1
+	"$no_fullbright"  1
+	"$nolod"          1
+}

@@ -6,7 +6,7 @@
 		"fieldName"           "Plugins"
 		"xpos"                "20"
 		"ypos"                "20"
-		"wide"                "620"
+		"wide"                "860"
 		"tall"                "600"
 		"autoResize"          "0"
 		"pinCorner"           "0"
@@ -23,7 +23,7 @@
 		"fieldName"    "PluginMenu"
 		"xpos"         "0"
 		"ypos"         "0"
-		"wide"         "620"
+		"wide"         "860"
 		"tall"         "600"
 		"autoResize"   "0"
 		"pinCorner"    "0"
@@ -32,11 +32,51 @@
 		"tabPosition"  "0"
 	}
 
+	"PluginMenuHeader" // new
+	{
+		"ControlName"    "Label"
+		"fieldName"      "PluginMenuHeader"
+		"xpos"           "20"
+		"ypos"           "20"
+		"wide"           "400"
+		"tall"           "30"
+		"autoResize"     "0"
+		"pinCorner"      "0"
+		"visible"        "1"
+		"enabled"        "1"
+		"wrap"           "0"
+		"tabPosition"    "0"
+		"maxchars"       "-1"
+		"textAlignment"  "north-west"
+		"labelText"      "Plugin menu:"
+		"font"           "HPH_MENU_PluginMenuText"
+	}
+
+	"PluginInfoHeader" // new
+	{
+		"ControlName"    "Label"
+		"fieldName"      "PluginInfoHeader"
+		"xpos"           "440"
+		"ypos"           "20"
+		"wide"           "400"
+		"tall"           "30"
+		"autoResize"     "0"
+		"pinCorner"      "0"
+		"visible"        "1"
+		"enabled"        "1"
+		"wrap"           "0"
+		"tabPosition"    "0"
+		"maxchars"       "-1"
+		"textAlignment"  "north-west"
+		"labelText"      "Info:"
+		"font"           "HPH_MENU_PluginMenuText"
+	}
+
 	"Close"
 	{
 		"ControlName"    "Button"
 		"fieldName"      "Close"
-		"xpos"           "170"
+		"xpos"           "80"
 		"ypos"           "500"
 		"wide"           "280"
 		"tall"           "40"
