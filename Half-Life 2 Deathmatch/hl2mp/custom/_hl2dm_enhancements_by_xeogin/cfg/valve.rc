@@ -1,0 +1,18 @@
+// load the base configuration
+//exec default.cfg
+// Setup custom controller
+exec joystick.cfg
+
+exec default_overrides.cfg
+
+// run a user script file if present
+exec autoexec.cfg
+
+//
+// stuff command line statements
+//
+stuffcmds
+
+hostname "Half-Life 2 Deathmatch"
+
+mp_forcerespawn 0

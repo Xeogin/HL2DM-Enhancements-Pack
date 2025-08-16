@@ -4,9 +4,13 @@
 	{
 		"ControlName"  "CPluginMenu"
 		"fieldName"    "PluginMenu"
+		//"xpos"		"20"
 		"xpos"         "0"
+		//"ypos"		"60"
 		"ypos"         "0"
+		//"wide"		"380"
 		"wide"         "860"
+		//"tall"		"350"
 		"tall"         "600"
 		"autoResize"   "0"
 		"pinCorner"    "0"
@@ -19,19 +23,25 @@
 	{
 		"ControlName"    "Label"
 		"fieldName"      "Text"
+		//"xpos"		"195"
 		"xpos"           "440"
+		//"ypos"		"30"
 		"ypos"           "60"
+		//"wide"		"256"
 		"wide"           "400"
+		//"tall"		"300"
 		"tall"           "490"
+		//"autoResize"		"3"
 		"autoResize"     "0"
 		"pinCorner"      "0"
 		"visible"        "1"
 		"enabled"        "1"
+		//"wrap"			"1"
 		"wrap"           "0"
 		"tabPosition"    "0"
 		"maxchars"       "-1"
 		"textAlignment"  "north-west"
-		"font"           "HPH_MENU_PluginMenuText" // new
+		//"font"           "HPH_MENU_PluginMenuText" // new
 	}
 
 	"option1"
@@ -39,8 +49,11 @@
 		"ControlName"    "Button"
 		"fieldName"      "option1"
 		"xpos"           "20"
+		//"ypos"		"30"
 		"ypos"           "60"
+		//"wide"		"152"
 		"wide"           "400"
+		//"tall"		"20"
 		"tall"           "40"
 		"autoResize"     "0"
 		"pinCorner"      "0"
@@ -54,7 +67,7 @@
 		"wrap"           "0"
 		"Command"        "option1"
 		"Default"        "1"
-		"font"           "HPH_MENU_PluginMenuText" // new
+		//"font"           "HPH_MENU_PluginMenuText" // new
 	}
 
 	"option2"
@@ -62,13 +75,17 @@
 		"ControlName"    "Button"
 		"fieldName"      "option2"
 		"xpos"           "20"
+		//"ypos"		"60"
 		"ypos"           "110"
+		//"wide"		"152"
 		"wide"           "400"
+		//"tall"		"20"
 		"tall"           "40"
 		"autoResize"     "0"
 		"pinCorner"      "0"
 		"visible"        "1"
 		"enabled"        "1"
+		//"tabPosition"		"2"
 		"tabPosition"    "1"
 		"labelText"      ""
 		"textAlignment"  "west"
@@ -77,7 +94,7 @@
 		"wrap"           "0"
 		"Command"        "option2"
 		"Default"        "0"
-		"font"           "HPH_MENU_PluginMenuText" // new
+		//"font"           "HPH_MENU_PluginMenuText" // new
 	}
 
 	"option3"
@@ -85,13 +102,17 @@
 		"ControlName"    "Button"
 		"fieldName"      "option3"
 		"xpos"           "20"
+		//"ypos"		"90"
 		"ypos"           "160"
+		//"wide"		"152"
 		"wide"           "400"
+		//"tall"		"20"
 		"tall"           "40"
 		"autoResize"     "0"
 		"pinCorner"      "0"
 		"visible"        "1"
 		"enabled"        "1"
+		//"tabPosition"		"3"
 		"tabPosition"    "1"
 		"labelText"      ""
 		"textAlignment"  "west"
@@ -100,7 +121,7 @@
 		"wrap"           "0"
 		"Command"        "option3"
 		"Default"        "0"
-		"font"           "HPH_MENU_PluginMenuText" // new
+		//"font"           "HPH_MENU_PluginMenuText" // new
 	}
 
 	"option4"
@@ -108,13 +129,17 @@
 		"ControlName"    "Button"
 		"fieldName"      "option4"
 		"xpos"           "20"
+		//"ypos"		"120"
 		"ypos"           "210"
+		//"wide"		"152"
 		"wide"           "400"
+		//"tall"		"20"
 		"tall"           "40"
 		"autoResize"     "0"
 		"pinCorner"      "0"
 		"visible"        "1"
 		"enabled"        "1"
+		//"tabPosition"		"4"
 		"tabPosition"    "1"
 		"labelText"      ""
 		"textAlignment"  "west"
@@ -123,7 +148,7 @@
 		"wrap"           "0"
 		"Command"        "option4"
 		"Default"        "0"
-		"font"           "HPH_MENU_PluginMenuText" // new
+		//"font"           "HPH_MENU_PluginMenuText" // new
 	}
 
 	"option5"
@@ -131,13 +156,17 @@
 		"ControlName"    "Button"
 		"fieldName"      "option5"
 		"xpos"           "20"
+		//"ypos"		"150"
 		"ypos"           "260"
+		//"wide"		"152"
 		"wide"           "400"
+		//"tall"		"20"
 		"tall"           "40"
 		"autoResize"     "0"
 		"pinCorner"      "0"
 		"visible"        "1"
 		"enabled"        "1"
+		//"tabPosition"		"5"
 		"tabPosition"    "1"
 		"labelText"      ""
 		"textAlignment"  "west"
@@ -146,7 +175,7 @@
 		"wrap"           "0"
 		"Command"        "option5"
 		"Default"        "0"
-		"font"           "HPH_MENU_PluginMenuText" // new
+		//"font"           "HPH_MENU_PluginMenuText" // new
 	}
 
 	"option6"
@@ -154,13 +183,17 @@
 		"ControlName"    "Button"
 		"fieldName"      "option6"
 		"xpos"           "20"
+		//"ypos"		"180"
 		"ypos"           "310"
+		//"wide"		"152"
 		"wide"           "400"
+		//"tall"		"20"
 		"tall"           "40"
 		"autoResize"     "0"
 		"pinCorner"      "0"
 		"visible"        "1"
 		"enabled"        "1"
+		//"tabPosition"		"6"
 		"tabPosition"    "1"
 		"labelText"      ""
 		"textAlignment"  "west"
@@ -169,7 +202,7 @@
 		"wrap"           "0"
 		"Command"        "option6"
 		"Default"        "0"
-		"font"           "HPH_MENU_PluginMenuText" // new
+		//"font"           "HPH_MENU_PluginMenuText" // new
 	}
 
 	"option7"
@@ -177,13 +210,17 @@
 		"ControlName"    "Button"
 		"fieldName"      "option7"
 		"xpos"           "20"
+		//"ypos"		"210"
 		"ypos"           "360"
+		//"wide"		"152"
 		"wide"           "400"
+		//"tall"		"20"
 		"tall"           "40"
 		"autoResize"     "0"
 		"pinCorner"      "0"
 		"visible"        "1"
 		"enabled"        "1"
+		//"tabPosition"		"7"
 		"tabPosition"    "1"
 		"labelText"      ""
 		"textAlignment"  "west"
@@ -192,7 +229,7 @@
 		"wrap"           "0"
 		"Command"        "option7"
 		"Default"        "0"
-		"font"           "HPH_MENU_PluginMenuText" // new
+		//"font"           "HPH_MENU_PluginMenuText" // new
 	}
 
 	"option8"
@@ -200,13 +237,17 @@
 		"ControlName"    "Button"
 		"fieldName"      "option8"
 		"xpos"           "20"
+		//"ypos"		"240"
 		"ypos"           "410"
+		//"wide"		"152"
 		"wide"           "400"
+		//"tall"		"20"
 		"tall"           "40"
 		"autoResize"     "0"
 		"pinCorner"      "0"
 		"visible"        "1"
 		"enabled"        "1"
+		//"tabPosition"		"8"
 		"tabPosition"    "1"
 		"labelText"      ""
 		"textAlignment"  "west"
@@ -215,6 +256,6 @@
 		"wrap"           "0"
 		"Command"        "option8"
 		"Default"        "0"
-		"font"           "HPH_MENU_PluginMenuText" // new
+		//"font"           "HPH_MENU_PluginMenuText" // new
 	}
 }
