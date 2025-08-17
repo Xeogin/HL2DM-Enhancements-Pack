@@ -10,7 +10,7 @@ A collection of optimizations, fixes, and enhancements for Half-Life 2: Deathmat
 
 ## Installation
 
-1. Download the `_hl2dm_enhancements_by_xeogin.vpk` and place it in your Half-Life 2: Deathmatch installation's `custom` directory. This is commonly located within:
+1. Download [_hl2dm_enhancements_by_xeogin.vpk](https://www.hl2dm.com/api/download_github.php?slug=hl2dm-enhancements) and place it in your Half-Life 2: Deathmatch installation's `custom` directory. This is commonly located within:
    `C:\Program Files (x86)\Steam\steamapps\common\Half-Life 2 Deathmatch\hl2mp\custom`
 
 2. **Important:** If you have other content in your `custom` directory, ensure that it does not contain a `valve.rc` file. If one exists, you should either delete it or merge its contents into your `autoexec.cfg` file, as using multiple `valve.rc` files will cause conflicts and prevent full functionality.
