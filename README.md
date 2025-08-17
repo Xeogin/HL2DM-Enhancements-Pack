@@ -4,7 +4,7 @@ A collection of optimizations, fixes, and enhancements for Half-Life 2: Deathmat
 
 ## Screenshots
 ![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755454438_2.jpg "Plugin Menu Fix")
-![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755456243_0.gif "Keyboard Tab Binds")
+![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755456243_0.gif "Keyboard Tab Bind Additions")
 ![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755456984_0.jpg "Mouse Tab Improvements")
 ![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755456984_1.jpg "Improved Video Settings Recommendations")
 
