@@ -8,7 +8,7 @@ A culmination of multiple client-side optimizations, fixes, and enhancements dev
 **More Responsive Online Play:** The pack also brings the game's network settings up to more modern standards, sending and receiving data more efficiently. This means your actions—like shooting or moving—will register sooner and feel more in sync with the server. It should also help your connection feel more stable and less prone to stuttering or "rubber-banding."
 
 ## Screenshots of UI Changes
-Plugin Menu: Now scales correctly:
+Plugin Menu: Fix so that it now scales correctly:
 ![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755454438_2.jpg "Plugin Menu Fix")
 
 Keyboard tab: Additional binding options have been added for easier customization:
