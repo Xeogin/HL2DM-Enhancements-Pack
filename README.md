@@ -8,16 +8,16 @@ A culmination of multiple client-side optimizations, fixes, and enhancements dev
 **More Responsive Online Play:** The pack also brings the game's network settings up to more modern standards, sending and receiving data more efficiently. This means your actions—like shooting or moving—will register sooner and feel more in sync with the server. It should also help your connection feel more stable and less prone to stuttering or "rubber-banding."
 
 ## Screenshots of UI Changes
-The Plugin Menu now scales correctly:
+Plugin Menu: Now scales correctly:
 ![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755454438_2.jpg "Plugin Menu Fix")
 
-Additional key binding options have been added for easier customization:
+Keyboard tab: Additional binding options have been added for easier customization:
 ![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755456243_0.gif "Keyboard Tab Bind Additions")
 
-UI alignment fixes and toggle for "Quick Info" (Health+Ammo display around your crosshair):
+Mouse tab: UI alignment fixes and toggle for "Quick Info" (Health+Ammo display around your crosshair):
 ![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755456984_0.jpg "Mouse Tab Improvements")
 
-Improved system recommendations for video settings:
+Video tab: Improved system recommendations for video settings:
 ![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755456984_1.jpg "Improved Video Settings Recommendations")
 
 ## Installation
