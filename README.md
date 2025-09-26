@@ -9,16 +9,16 @@ A culmination of multiple client-side optimizations, fixes, and enhancements dev
 
 ## Screenshots of UI Changes
 Plugin Menu: Fix so that it now scales correctly:
-![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755454438_2.jpg "Plugin Menu Fix")
+![Plugin Menu Fix](https://www.hl2dm-game.com/uploads/img/2025/09/f881d26d2275b67885ef20f63fce1d0a.jpg)
 
 Keyboard tab: Additional binding options have been added for easier customization:
-![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755456243_0.gif "Keyboard Tab Bind Additions")
+![Keyboard Tab Bind Additions](https://www.hl2dm-game.com/uploads/img/2025/09/d9a4f100cfa625c450034cf0791fb7d1.gif)
 
 Mouse tab: UI alignment fixes and toggle for "Quick Info" (Health+Ammo display around your crosshair):
-![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755456984_0.jpg "Mouse Tab Improvements")
+![Mouse Tab Improvements](https://www.hl2dm-game.com/uploads/img/2025/09/c3fe496eb7b5e10b881071c34f39387a.jpg)
 
 Video tab: Improved system recommendations for video settings:
-![alt text](https://www.hl2mp-ranked.com/uploads/downloads/37/images/screenshots/ss_1755456984_1.jpg "Improved Video Settings Recommendations")
+![Improved Video Settings Recommendations](https://www.hl2dm-game.com/uploads/img/2025/09/46bcd09697257e33ed4e010dbb03e72e.jpg)
 
 ## Installation
 
