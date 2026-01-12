@@ -9,20 +9,20 @@ A culmination of multiple client-side optimizations, fixes, and enhancements dev
 
 ## Screenshots of UI Changes
 Plugin Menu: Fix so that it now scales correctly:
-![Plugin Menu Fix](https://www.hl2dm-game.com/uploads/img/2025/09/f881d26d2275b67885ef20f63fce1d0a.jpg)
+![Plugin Menu Fix](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/refs/heads/main/Example%20Images/plugin%20menu.jpg)
 
 Keyboard tab: Additional binding options have been added for easier customization:
-![Keyboard Tab Bind Additions](https://www.hl2dm-game.com/uploads/img/2025/09/d9a4f100cfa625c450034cf0791fb7d1.gif)
+![Keyboard Tab Bind Additions](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/refs/heads/main/Example%20Images/keyboard%20tab.gif)
 
 Mouse tab: UI alignment fixes and toggle for "Quick Info" (Health+Ammo display around your crosshair):
-![Mouse Tab Improvements](https://www.hl2dm-game.com/uploads/img/2025/09/c3fe496eb7b5e10b881071c34f39387a.jpg)
+![Mouse Tab Improvements](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/refs/heads/main/Example%20Images/mouse%20tab.jpg)
 
 Video tab: Improved system recommendations for video settings:
-![Improved Video Settings Recommendations](https://www.hl2dm-game.com/uploads/img/2025/09/46bcd09697257e33ed4e010dbb03e72e.jpg)
+![Improved Video Settings Recommendations](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/refs/heads/main/Example%20Images/video%20tab.jpg)
 
 ## Installation
 
-1. Download [_hl2dm_enhancements_by_xeogin.vpk](https://www.hl2dm.com/api/download_github.php?slug=hl2dm-enhancements) and place it in your Half-Life 2: Deathmatch installation's `custom` directory. This is commonly located within:
+1. Download [_hl2dm_enhancements_by_xeogin.vpk](https://github.com/Xeogin/HL2DM-Enhancements-Pack/releases/latest/) and place it in your Half-Life 2: Deathmatch installation's `custom` directory. This is commonly located within:
    `C:\Program Files (x86)\Steam\steamapps\common\Half-Life 2 Deathmatch\hl2mp\custom`
 
-2. **Important:** If you have other content in your `custom` directory, ensure that it does not contain a `valve.rc` file. If one exists, you should either delete it or merge its contents into your `autoexec.cfg` file, as using multiple `valve.rc` files will cause conflicts and prevent full functionality.
+2. **Important:** If you have other content in your `custom` directory, ensure that it does not contain a `valve.rc` file. (A common example being Pred's HUD Mod) If one exists, you should either delete it or merge its contents into your `autoexec.cfg` file, as using multiple `valve.rc` files will cause conflicts and prevent full functionality.
