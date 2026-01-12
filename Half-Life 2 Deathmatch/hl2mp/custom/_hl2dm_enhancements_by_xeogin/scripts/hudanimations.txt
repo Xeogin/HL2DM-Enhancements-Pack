@@ -377,8 +377,10 @@ event HudPlayerDeath
 	Animate HudCustomCrosshair Alpha 				"0" 			Linear 	0.0 0.0 // new
 
 	// Death screen fill animations
-	Animate HudDamageIndicator DmgFullscreenColor	"255 0 0 20"	Deaccel 0.1 0.2 // Def. "255 0 0 96"
-	Animate HudDamageIndicator DmgFullscreenColor	"255 0 0 48"	Deaccel 0.3 4.0 // Def. "255 0 0 255"
+	//Animate HudDamageIndicator DmgFullscreenColor	"255 0 0 20"	Deaccel 0.1 0.2 // Def. "255 0 0 96"
+	//Animate HudDamageIndicator DmgFullscreenColor	"255 0 0 48"	Deaccel 0.3 4.0 // Def. "255 0 0 255"
+	Animate HudDamageIndicator DmgFullscreenColor 	"255 0 0 0" 	Linear 0.0 0.0
+	Animate HudDamageIndicator DmgFullscreenColor 	"255 0 0 35" 	Linear 0.0 2.4
 }
 
 event HealthIncreasedAbove20

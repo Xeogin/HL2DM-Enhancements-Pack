@@ -382,7 +382,7 @@
 		"font" 				"CrosshairsOutline"
 		"textAlignment" 	"center"
 		"textinsety" 		"1" // vertical pos correction
-		"fgcolor_override" 	"0 0 0 230"
+		"fgcolor_override" 	"0 0 0 240"
 	}
 	HudCustomCrosshair // new
 	{
@@ -397,7 +397,7 @@
 		"font" 				"Crosshairs"
 		"textAlignment" 	"center"
 		"textinsety" 		"0" // vertical pos correction
-		"fgcolor_override" 	"BrightFg"
+		"fgcolor_override" 	"255 215 0 255"
 	}
 	HudDeathNotice
 	{

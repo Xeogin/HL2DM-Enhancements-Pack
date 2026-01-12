@@ -16,19 +16,20 @@ Scheme
 	Colors
 	{
 		// base colors
-		"Orange"			"255 176 0 255"
-		"OrangeDim"			"255 176 0 120"
-		"LightOrange"		"188 112 0 128"
+		"Gold" 						"255 215 0 255" 	// new
+		"Orange" 					"255 176 0 255"
+		"OrangeDim" 				"255 176 0 120"
+		"LightOrange" 				"188 112 0 128"
 		
-		"Red"				"192 28 0 140"
-		"Black"				"0 0 0 196"
-		"TransparentBlack"	"0 0 0 196"
-		"TransparentLightBlack"	"0 0 0 90"
+		"Red" 						"192 28 0 140"
+		"Black" 					"0 0 0 240" 	// Def. "0 0 0 196"
+		"TransparentBlack" 			"0 0 0 196"
+		"TransparentLightBlack" 	"0 0 0 90"
 
-		"Blank"				"0 0 0 0"
-		"ForTesting"		"255 0 0 32"
-		"ForTesting_Magenta"	"255 0 255 255"
-		"ForTesting_MagentaDim"	"255 0 255 120"
+		"Blank" 					"0 0 0 0"
+		"ForTesting" 				"255 0 0 32"
+		"ForTesting_Magenta" 		"255 0 255 255"
+		"ForTesting_MagentaDim" 	"255 0 255 120"
 	}
 	
 	///////////////////// BASE SETTINGS ////////////////////////
@@ -37,224 +38,222 @@ Scheme
 	// controls use these to determine their settings
 	BaseSettings
 	{
-		"FgColor"			"255 220 0 100"
-		"FgColor_vrmode"	"255 220 0 200"
-		"BgColor"			"0 0 0 76"
+		"FgColor" 										"255 220 0 100"
+		"FgColor_vrmode" 								"255 220 0 200"
+		"BgColor" 										"0 0 0 76"
 
-		"Panel.FgColor"			"255 220 0 100"
-		"Panel.BgColor"			"0 0 0 76"
+		"Panel.FgColor" 								"255 220 0 100"
+		"Panel.BgColor" 								"0 0 0 76"
 		
-		"BrightFg"		"255 220 0 255"
+		"BrightFg" 										"255 220 0 255"
 
-		"DamagedBg"			"180 0 0 200"
-		"DamagedFg"			"180 0 0 230"
-		"BrightDamagedFg"		"255 0 0 255"
+		"DamagedBg" 									"180 0 0 200"
+		"DamagedFg" 									"180 0 0 230"
+		"BrightDamagedFg" 								"255 0 0 255"
 
 		// weapon selection colors
-		"SelectionNumberFg"		"255 220 0 255"
-		"SelectionTextFg"		"255 220 0 255"
-		"SelectionEmptyBoxBg" 	"0 0 0 80"
-		"SelectionBoxBg" 		"0 0 0 80"
-		"SelectionSelectedBoxBg" "0 0 0 80"
+		"SelectionNumberFg" 							"255 220 0 255"
+		"SelectionTextFg" 								"255 220 0 255"
+		"SelectionEmptyBoxBg"  							"0 0 0 80"
+		"SelectionBoxBg"  								"0 0 0 80"
+		"SelectionSelectedBoxBg" 						"0 0 0 80"
 		
-		"ZoomReticleColor"	"255 220 0 255"
+		"ZoomReticleColor" 								"255 220 0 255"
 
 		// HL1-style HUD colors
-		"Yellowish"			"255 160 0 255"
-		"Normal"			"255 208 64 255"
-		"Caution"			"255 48 0 255"
+		"Yellowish" 									"255 160 0 255"
+		"Normal" 										"255 208 64 255"
+		"Caution" 										"255 48 0 255"
 
 		// Top-left corner of the "Half-Life 2" on the main screen
-		"Main.Title1.X"		"76"
-		"Main.Title1.Y"		"184"
-		"Main.Title1.Color"	"255 255 255 255"
+		"Main.Title1.X" 								"76"
+		"Main.Title1.Y" 								"184"
+		"Main.Title1.Color" 							"255 255 255 255"
 		
 		// Top-left corner of the "DEATHMATCH" on the main screen
-		"Main.Title2.X"		"315"
-		"Main.Title2.Y"		"222"
-		"Main.Title2.Color"	"255 255 255 180"
+		"Main.Title2.X" 								"315"
+		"Main.Title2.Y" 								"222"
+		"Main.Title2.Color" 							"255 255 255 180"
 
 		// Top-left corner of the menu on the main screen
-		"Main.Menu.X"			"76"
-		"Main.Menu.Y"			"240"
+		"Main.Menu.X" 									"76"
+		"Main.Menu.Y" 									"240"
 		
 		// Blank space to leave beneath the menu on the main screen
-		"Main.BottomBorder"	"32"
+		"Main.BottomBorder" 							"32"
 
 		// Deck colors
-		"SteamDeckLoadingBar"			"250 128 20 255"
-		"SteamDeckSpinner"				"201 100 0 255"
-		"SteamDeckLoadingText"			"181 179 175 255"
+		"SteamDeckLoadingBar" 							"250 128 20 255"
+		"SteamDeckSpinner" 								"201 100 0 255"
+		"SteamDeckLoadingText" 							"181 179 175 255"
 
+		// vgui_controls color specifications
+		Border.Bright									"LightOrange" 	// the lit side of a control
+		Border.Dark										"LightOrange" 	// the dark/unlit side of a control
+		Border.Selection								"Blank" 		// the additional border color for displaying the default/selected button
 
-///HERE
-				// vgui_controls color specifications
-		Border.Bright					"LightOrange"		// the lit side of a control
-		Border.Dark						"LightOrange"		// the dark/unlit side of a control
-		Border.Selection				"Blank"				// the additional border color for displaying the default/selected button
+		Button.TextColor								"Orange"
+		Button.BgColor									"Blank"
+		Button.ArmedTextColor							"Orange"
+		Button.ArmedBgColor								"Red"
+		Button.DepressedTextColor						"Orange"
+		Button.DepressedBgColor							"Red"
 
-		Button.TextColor				"Orange"
-		Button.BgColor					"Blank"
-		Button.ArmedTextColor			"Orange"
-		Button.ArmedBgColor				"Red"
-		Button.DepressedTextColor		"Orange"
-		Button.DepressedBgColor			"Red"
+		CheckButton.TextColor							"Orange"
+		CheckButton.SelectedTextColor					"Orange"
+		CheckButton.BgColor								"TransparentBlack"
+		CheckButton.Border1  							"Border.Dark" 		// the left checkbutton border
+		CheckButton.Border2  							"Border.Bright" 	// the right checkbutton border
+		CheckButton.Check								"Orange" 			// color of the check itself
 
-		CheckButton.TextColor			"Orange"
-		CheckButton.SelectedTextColor	"Orange"
-		CheckButton.BgColor				"TransparentBlack"
-		CheckButton.Border1  			"Border.Dark" 		// the left checkbutton border
-		CheckButton.Border2  			"Border.Bright"		// the right checkbutton border
-		CheckButton.Check				"Orange"				// color of the check itself
+		ComboBoxButton.ArrowColor						"Orange"
+		ComboBoxButton.ArmedArrowColor					"Orange"
+		ComboBoxButton.BgColor							"TransparentBlack"
+		ComboBoxButton.DisabledBgColor					"Blank"
 
-		ComboBoxButton.ArrowColor		"Orange"
-		ComboBoxButton.ArmedArrowColor	"Orange"
-		ComboBoxButton.BgColor			"TransparentBlack"
-		ComboBoxButton.DisabledBgColor	"Blank"
+		Frame.BgColor									"TransparentBlack"
+		Frame.OutOfFocusBgColor							"TransparentBlack"
+		Frame.FocusTransitionEffectTime					"0.0" 	// time it takes for a window to fade in/out on focus/out of focus
+		Frame.TransitionEffectTime						"0.0" 	// time it takes for a window to fade in/out on open/close
+		Frame.AutoSnapRange								"0"
+		FrameGrip.Color1								"Blank"
+		FrameGrip.Color2								"Blank"
+		FrameTitleButton.FgColor						"Blank"
+		FrameTitleButton.BgColor						"Blank"
+		FrameTitleButton.DisabledFgColor				"Blank"
+		FrameTitleButton.DisabledBgColor				"Blank"
+		FrameSystemButton.FgColor						"Blank"
+		FrameSystemButton.BgColor						"Blank"
+		FrameSystemButton.Icon							""
+		FrameSystemButton.DisabledIcon					""
+		FrameTitleBar.TextColor							"Orange"
+		FrameTitleBar.BgColor							"Blank"
+		FrameTitleBar.DisabledTextColor					"Orange"
+		FrameTitleBar.DisabledBgColor					"Blank"
 
-		Frame.BgColor					"TransparentBlack"
-		Frame.OutOfFocusBgColor			"TransparentBlack"
-		Frame.FocusTransitionEffectTime	"0.0"	// time it takes for a window to fade in/out on focus/out of focus
-		Frame.TransitionEffectTime		"0.0"	// time it takes for a window to fade in/out on open/close
-		Frame.AutoSnapRange				"0"
-		FrameGrip.Color1				"Blank"
-		FrameGrip.Color2				"Blank"
-		FrameTitleButton.FgColor		"Blank"
-		FrameTitleButton.BgColor		"Blank"
-		FrameTitleButton.DisabledFgColor	"Blank"
-		FrameTitleButton.DisabledBgColor	"Blank"
-		FrameSystemButton.FgColor		"Blank"
-		FrameSystemButton.BgColor		"Blank"
-		FrameSystemButton.Icon			""
-		FrameSystemButton.DisabledIcon	""
-		FrameTitleBar.TextColor			"Orange"
-		FrameTitleBar.BgColor			"Blank"
-		FrameTitleBar.DisabledTextColor	"Orange"
-		FrameTitleBar.DisabledBgColor	"Blank"
+		GraphPanel.FgColor								"Orange"
+		GraphPanel.BgColor								"TransparentBlack"
 
-		GraphPanel.FgColor				"Orange"
-		GraphPanel.BgColor				"TransparentBlack"
+		Label.TextDullColor								"Orange"
+		Label.TextColor									"Orange"
+		Label.TextBrightColor							"Orange"
+		Label.SelectedTextColor							"Orange"
+		Label.BgColor									"Blank"
+		Label.DisabledFgColor1							"Blank"
+		Label.DisabledFgColor2							"LightOrange"
 
-		Label.TextDullColor				"Orange"
-		Label.TextColor					"Orange"
-		Label.TextBrightColor			"Orange"
-		Label.SelectedTextColor			"Orange"
-		Label.BgColor					"Blank"
-		Label.DisabledFgColor1			"Blank"
-		Label.DisabledFgColor2			"LightOrange"
+		ListPanel.TextColor								"Orange"
+		ListPanel.BgColor								"TransparentBlack"
+		ListPanel.SelectedTextColor						"Black"
+		ListPanel.SelectedBgColor						"Red"
+		ListPanel.SelectedOutOfFocusBgColor				"Red"
+		ListPanel.EmptyListInfoTextColor				"Orange"
 
-		ListPanel.TextColor					"Orange"
-		ListPanel.BgColor					"TransparentBlack"
-		ListPanel.SelectedTextColor			"Black"
-		ListPanel.SelectedBgColor			"Red"
-		ListPanel.SelectedOutOfFocusBgColor	"Red"
-		ListPanel.EmptyListInfoTextColor	"Orange"
+		Menu.TextColor									"Orange"
+		Menu.BgColor									"TransparentBlack"
+		Menu.ArmedTextColor								"Orange"
+		Menu.ArmedBgColor								"Red"
+		Menu.TextInset									"6"
 
-		Menu.TextColor					"Orange"
-		Menu.BgColor					"TransparentBlack"
-		Menu.ArmedTextColor				"Orange"
-		Menu.ArmedBgColor				"Red"
-		Menu.TextInset					"6"
+		Chat.TypingText									"Orange"
 
-		Chat.TypingText					"Orange"
+		Panel.FgColor									"OrangeDim"
+		Panel.BgColor									"Blank"
 
-		Panel.FgColor					"OrangeDim"
-		Panel.BgColor					"blank"
+		ProgressBar.FgColor								"Orange"
+		ProgressBar.BgColor								"TransparentBlack"
 
-		ProgressBar.FgColor				"Orange"
-		ProgressBar.BgColor				"TransparentBlack"
+		PropertySheet.TextColor							"Orange"
+		PropertySheet.SelectedTextColor					"Orange"
+		PropertySheet.TransitionEffectTime 				"0.25" 	// time to change from one tab to another
 
-		PropertySheet.TextColor			"Orange"
-		PropertySheet.SelectedTextColor	"Orange"
-		PropertySheet.TransitionEffectTime	"0.25"	// time to change from one tab to another
+		RadioButton.TextColor							"Orange"
+		RadioButton.SelectedTextColor					"Orange"
 
-		RadioButton.TextColor			"Orange"
-		RadioButton.SelectedTextColor	"Orange"
+		RichText.TextColor								"Orange"
+		RichText.BgColor								"Blank"
+		RichText.SelectedTextColor						"Orange"
+		RichText.SelectedBgColor						"Blank"
 
-		RichText.TextColor				"Orange"
-		RichText.BgColor				"Blank"
-		RichText.SelectedTextColor		"Orange"
-		RichText.SelectedBgColor		"Blank"
+		ScrollBarButton.FgColor							"Orange"
+		ScrollBarButton.BgColor							"Blank"
+		ScrollBarButton.ArmedFgColor					"Orange"
+		ScrollBarButton.ArmedBgColor					"Blank"
+		ScrollBarButton.DepressedFgColor				"Orange"
+		ScrollBarButton.DepressedBgColor				"Blank"
 
-				ScrollBarButton.FgColor				"Orange"
-		ScrollBarButton.BgColor				"Blank"
-		ScrollBarButton.ArmedFgColor		"Orange"
-		ScrollBarButton.ArmedBgColor		"Blank"
-		ScrollBarButton.DepressedFgColor	"Orange"
-		ScrollBarButton.DepressedBgColor	"Blank"
+		ScrollBarSlider.FgColor							"Blank" 	// nob color
+		ScrollBarSlider.BgColor							"Blank" 	// slider background color
 
-		ScrollBarSlider.FgColor				"Blank"		// nob color
-		ScrollBarSlider.BgColor				"Blank"		// slider background color
-
-		SectionedListPanel.HeaderTextColor	"Orange"
-		SectionedListPanel.HeaderBgColor	"Blank"
-		SectionedListPanel.DividerColor		"Black"
-		SectionedListPanel.TextColor		"Orange"
-		SectionedListPanel.BrightTextColor	"Orange"
-		SectionedListPanel.BgColor			"TransparentLightBlack"
+		SectionedListPanel.HeaderTextColor				"Orange"
+		SectionedListPanel.HeaderBgColor				"Blank"
+		SectionedListPanel.DividerColor					"Black"
+		SectionedListPanel.TextColor					"Orange"
+		SectionedListPanel.BrightTextColor				"Orange"
+		SectionedListPanel.BgColor						"TransparentLightBlack"
 		SectionedListPanel.SelectedTextColor			"Black"
 		SectionedListPanel.SelectedBgColor				"Red"
-		SectionedListPanel.OutOfFocusSelectedTextColor	"Black"
-		SectionedListPanel.OutOfFocusSelectedBgColor	"255 255 255 32"
+		SectionedListPanel.OutOfFocusSelectedTextColor 	"Black"
+		SectionedListPanel.OutOfFocusSelectedBgColor 	"255 255 255 32"
 
-		Slider.NobColor				"108 108 108 255"
-		Slider.TextColor			"127 140 127 255"
-		Slider.TrackColor			"31 31 31 255"
-		Slider.DisabledTextColor1	"117 117 117 255"
-		Slider.DisabledTextColor2	"30 30 30 255"
+		Slider.NobColor									"108 108 108 255"
+		Slider.TextColor								"127 140 127 255"
+		Slider.TrackColor								"31 31 31 255"
+		Slider.DisabledTextColor1						"117 117 117 255"
+		Slider.DisabledTextColor2						"30 30 30 255"
 
-		TextEntry.TextColor			"Orange"
-		TextEntry.BgColor			"TransparentBlack"
-		TextEntry.CursorColor		"Orange"
-		TextEntry.DisabledTextColor	"Orange"
-		TextEntry.DisabledBgColor	"Blank"
-		TextEntry.SelectedTextColor	"Black"
-		TextEntry.SelectedBgColor	"Red"
-		TextEntry.OutOfFocusSelectedBgColor	"Red"
-		TextEntry.FocusEdgeColor	"TransparentBlack"
+		TextEntry.TextColor								"Orange"
+		TextEntry.BgColor								"TransparentBlack"
+		TextEntry.CursorColor							"Orange"
+		TextEntry.DisabledTextColor						"Orange"
+		TextEntry.DisabledBgColor						"Blank"
+		TextEntry.SelectedTextColor						"Black"
+		TextEntry.SelectedBgColor						"Red"
+		TextEntry.OutOfFocusSelectedBgColor 			"Red"
+		TextEntry.FocusEdgeColor						"TransparentBlack"
 
-		ToggleButton.SelectedTextColor	"Orange"
+		ToggleButton.SelectedTextColor 					"Orange"
 
-		Tooltip.TextColor			"TransparentBlack"
-		Tooltip.BgColor				"Red"
+		Tooltip.TextColor								"TransparentBlack"
+		Tooltip.BgColor									"Red"
 
-		TreeView.BgColor			"TransparentBlack"
+		TreeView.BgColor								"TransparentBlack"
 
-		WizardSubPanel.BgColor		"Blank"
+		WizardSubPanel.BgColor							"Blank"
 
 		// scheme-specific colors
-		"FgColor"		"Orange"
-		"BgColor"		"TransparentBlack"
+		"FgColor"										"Orange"
+		"BgColor"										"TransparentBlack"
 
-		"ViewportBG"		"Blank"
-		"team0"			"204 204 204 255" // Spectators
-		"team1"			"255 64 64 255" // CT's
-		"team2"			"153 204 255 255" // T's
+		"ViewportBG"									"Blank"
+		"team0"											"204 204 204 255" 	// Spectators
+		"team1"											"255 64 64 255" 	// CT's
+		"team2"											"153 204 255 255" 	// T's
 
-		"MapDescriptionText"	"Orange" // the text used in the map description window
-		"CT_Blue"			"153 204 255 255"
-		"T_Red"				"255 64 64 255"
-		"Hostage_Yellow"	"Panel.FgColor"
-		"HudIcon_Green"		"0 160 0 255"
-		"HudIcon_Red"		"160 0 0 255"
+		"MapDescriptionText"							"Orange" 			// the text used in the map description window
+		"CT_Blue"										"153 204 255 255"
+		"T_Red"											"255 64 64 255"
+		"Hostage_Yellow"								"Panel.FgColor"
+		"HudIcon_Green"									"0 160 0 255"
+		"HudIcon_Red"									"160 0 0 255"
 
 		// CHudMenu
-		"ItemColor"		"255 167 42 200"	// default 255 167 42 255
-		"MenuColor"		"233 208 173 255"
-		"MenuBoxBg"		"0 0 0 100"
+		"ItemColor"										"255 167 42 200" 	// default 255 167 42 255
+		"MenuColor"										"233 208 173 255"
+		"MenuBoxBg"										"0 0 0 100"
 
 		// weapon selection colors
-		"SelectionNumberFg"		"255 220 0 200"
-		"SelectionTextFg"		"255 220 0 200"
-		"SelectionEmptyBoxBg" 	"0 0 0 80"
-		"SelectionBoxBg" 		"0 0 0 80"
-		"SelectionSelectedBoxBg" "0 0 0 190"
+		"SelectionNumberFg"								"255 220 0 200"
+		"SelectionTextFg"								"255 220 0 200"
+		"SelectionEmptyBoxBg" 							"0 0 0 80"
+		"SelectionBoxBg" 								"0 0 0 80"
+		"SelectionSelectedBoxBg" 						"0 0 0 190"
 
 		// Hint message colors
-		"HintMessageFg"			"255 255 255 255"
-		"HintMessageBg" 		"0 0 0 60"
+		"HintMessageFg"									"255 255 255 255"
+		"HintMessageBg" 								"0 0 0 60"
 
-		"ProgressBarFg"			"255 30 13 255"
+		"ProgressBarFg"									"255 30 13 255"
 	}
 
 	//////////////////////// BITMAP FONT FILES /////////////////////////////
