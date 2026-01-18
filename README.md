@@ -7,7 +7,7 @@ This project bundles community-tested optimizations and fixes into a simple 'set
 ## Features
 
 ### ⚡ Improved Performance & Logic
-Refines internal settings for better stability while removing common technical annoyances.
+Refines internal settings for better stability while removing common technical annoyances:
 * **Optimized Hardware Profiles:** Custom `dxsupport_override.cfg` fixes a hardcoding error that prevented "Very High" textures (`mat_picmip -1`) from being recommended. It also enables hidden impact effect cvars (`fx_drawimpact...`) and optimizes memory heap sizes.
 * **Explosion Audio Fix:** Integrated DSP fix that removes the ringing distortion effect from explosions. This prevents the common engine bug where the high-pitched "tinnitus" sound gets stuck.
 * **More Responsive Online Play:** Modernizes network settings to send and receive data more efficiently. This ensures your shots and movement register accurately while reducing connection stuttering and "rubber-banding."
