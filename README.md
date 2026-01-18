@@ -1,28 +1,55 @@
-# HL2DM Enhancements Pack
+# Zero-Effort HL2DM Config
 
-A culmination of multiple client-side optimizations, fixes, and enhancements developed and refined by the community, this pack aims to provide the best possible experience for all Half-Life 2: Deathmatch players.
+**A collection of essential performance tweaks, bug fixes, and UI improvements for Half-Life 2: Deathmatch.**
 
-## Summary of Config Changes
-**Improved Performance:** This pack adjusts internal settings to help the game run better, especially on poorly optimized maps and during intense firefights. Key visual details have also been adjusted to improve the game's frame rate (FPS), giving a smoother, more consistent experience.
+This project bundles community-tested optimizations and fixes into a simple, "set-and-forget" package. Instead of messing with complex console commands or fragile config files, these enhancements load with the game to provide a smoother, more reliable experience for everyone.
 
-**More Responsive Online Play:** The pack also brings the game's network settings up to more modern standards, sending and receiving data more efficiently. This means your actions—like shooting or moving—will register sooner and feel more in sync with the server. It should also help your connection feel more stable and less prone to stuttering or "rubber-banding."
+## Features
 
-## Screenshots of UI Changes
-Plugin Menu: Fix so that it now scales correctly:
-![Plugin Menu Fix](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/refs/heads/main/Example%20Images/plugin%20menu.jpg)
+### ⚡ Improved Performance & Logic
+Adjusts internal settings to improve stability and remove technical annoyances.
+* **Optimized Hardware Profiles:** Custom `dxsupport_override.cfg` fixes a hardcoding error that prevented "Very High" textures (`mat_picmip -1`) from being recommended. It also enables hidden impact effect cvars (`fx_drawimpact...`) and optimizes memory heap sizes.
+* **Explosion Audio Fix:** Integrated DSP fix that removes the ringing distortion effect from explosions. This prevents the common engine bug where the high-pitched "tinnitus" sound gets stuck.
+* **More Responsive Online Play:** Modernizes network settings to send and receive data more efficiently. This ensures your shots and movement register accurately while reducing connection stuttering and "rubber-banding."
+* **Frame Rate Stability:** Refines internal variables to help the game run better during intense firefights and on poorly optimized maps, providing a smoother, more consistent FPS.
 
-Keyboard tab: Additional binding options have been added for easier customization:
-![Keyboard Tab Bind Additions](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/refs/heads/main/Example%20Images/keyboard%20tab.gif)
+### 🎨 Modular UI Enhancements (Optional)
+A companion VPK for non-intrusive improvements and visual fixes:
+* **Corrected UI Crosshair:** Replaces the stock white crosshair with a gold version that matches the game's UI. Includes an alignment fix, a high-opacity outline for better visibility, and automatic resolution scaling.
+* **Red Screen & Directional Damage Fix:** Eliminates the intrusive red screen flashes and expands the use of directional indicators to be used for both high and low damage. Redundant frontal animations are removed while lighting up both indicators when hit from behind, providing simple and consistent tracking visuals.
+* **Plugin Menu Fix:** Corrects a scaling oversight that leaves the stock menu in a broken, unreadable state.
+* **Mouse Tab Improvements:** Re-enables the hidden **Quick Info** toggle (Health/Ammo around the crosshair) and fixes some UI alignment issues within the tab.
+* **Expanded Keyboard Bindings:** Adds missing binding options for common commands using native translation strings for full localization support.
 
-Mouse tab: UI alignment fixes and toggle for "Quick Info" (Health+Ammo display around your crosshair):
-![Mouse Tab Improvements](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/refs/heads/main/Example%20Images/mouse%20tab.jpg)
-
-Video tab: Improved system recommendations for video settings:
-![Improved Video Settings Recommendations](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/refs/heads/main/Example%20Images/video%20tab.jpg)
+---
 
 ## Installation
 
-1. Download [zo_hl2dm_enhancements.vpk](https://github.com/Xeogin/HL2DM-Enhancements-Pack/releases/latest/) and place it in your Half-Life 2: Deathmatch installation's `custom` directory. This is commonly located within:
-   `C:\Program Files (x86)\Steam\steamapps\common\Half-Life 2 Deathmatch\hl2mp\custom`
+1. Download the VPKs from the [Latest Release](https://github.com/Xeogin/Zero-Effort-HL2DM-Config/releases/latest/).
+2. Place them in your `custom` directory:  
+   `...\Steam\steamapps\common\Half-Life 2 Deathmatch\hl2mp\custom`
 
-2. **Important:** If you have other content in your `custom` directory, ensure that it does not contain a `valve.rc` file. (A common example being Pred's HUD Mod) If one exists, you should either delete it or merge its contents into your `autoexec.cfg` file, as using multiple `valve.rc` files will cause conflicts and prevent full functionality.
+### Included Files
+* **`0_effort_hl2dm_config.vpk`**: **The Core Logic.** Handles performance, networking, hardware profiles, and audio fixes.
+* **`zo_hl2dm_ui_enhancements.vpk`**: **Optional UI & Visuals.** Handles menu updates, icon consistency, crosshair fixes, and the red screen fix.
+
+---
+
+## Screenshots
+
+| Plugin Menu Fix | Keyboard Bindings |
+| :--- | :--- |
+| ![Plugin Menu](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/plugin%20menu.jpg) | ![Keyboard Tab](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/keyboard%20tab.gif) |
+
+| Mouse & Quick Info | Video Recommendations |
+| :--- | :--- |
+| ![Mouse Tab](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/mouse%20tab.jpg) | ![Video Tab](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/video%20tab.jpg) |
+
+---
+
+## Credits & Acknowledgments
+
+* **mastercoms**: For the inspiration and foundational logic used in the core config.
+* **Jora**: For the **DSP fix**, integrated to resolve the persistent explosion audio loop.
+* **Diamphid**: For the original **Red Screen fix**, which has been modernized for this package.
+* **Pred**: For the original **Plugin Menu fix**, which has been further adjusted for better scaling.
