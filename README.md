@@ -22,7 +22,7 @@ Video tab: Improved system recommendations for video settings:
 
 ## Installation
 
-1. Download [_hl2dm_enhancements_by_xeogin.vpk](https://github.com/Xeogin/HL2DM-Enhancements-Pack/releases/latest/) and place it in your Half-Life 2: Deathmatch installation's `custom` directory. This is commonly located within:
+1. Download [zo_hl2dm_enhancements.vpk](https://github.com/Xeogin/HL2DM-Enhancements-Pack/releases/latest/) and place it in your Half-Life 2: Deathmatch installation's `custom` directory. This is commonly located within:
    `C:\Program Files (x86)\Steam\steamapps\common\Half-Life 2 Deathmatch\hl2mp\custom`
 
 2. **Important:** If you have other content in your `custom` directory, ensure that it does not contain a `valve.rc` file. (A common example being Pred's HUD Mod) If one exists, you should either delete it or merge its contents into your `autoexec.cfg` file, as using multiple `valve.rc` files will cause conflicts and prevent full functionality.
