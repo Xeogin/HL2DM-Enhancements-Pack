@@ -2,7 +2,14 @@
 
 **A collection of essential performance tweaks, bug fixes, and UI improvements for Half-Life 2: Deathmatch.**
 
-This project bundles community-tested optimizations and fixes into a simple 'set-and-forget' package. These enhancements load with the game to provide a smoother and more reliable experience without the need for complex console commands or fragile config files
+This project bundles community-tested optimizations and fixes into a simple "set-and-forget" package. These enhancements load with the game to provide a smoother and more reliable experience without the need for complex console commands or fragile config files.
+
+## Philosophy
+* **Minimalist & Authentic:** This pack does not include any third-party assets like custom fonts, textures, etc. Everything is based on the files that come with the game and are given minimal modifications to keep the experience as true to stock as possible.
+* **Compatibility First:** This project is designed to stay out of the way of other mods. The file naming ensures the core config takes high priority for stability, while the UI enhancements are positioned to be easily overridden by other modifications, which is very much expected with custom HUDs. 
+* **Full Transparency:** Every file in this pack can be read as a plain text file. Additionally, every setting changed includes both an explanatory comment and what its default value was.
+
+---
 
 ## Features
 
@@ -23,15 +30,25 @@ A companion VPK for non-intrusive improvements and visual fixes:
 
 ---
 
+## “Can using this get me banned?”
+
+Simply put: **No**, though as with nearly everything in life, there’s a caveat to that.
+
+These are standard overrides that use the game’s built-in engine commands. They do not modify memory or executables and are **100% VAC safe.**
+
+This project is also designed to respect server authority and is fully compatible with `sv_pure`. Should a host choose to configure their server to disallow any of this content, the game just won’t load it and will use the stock files instead. However, some server-side anti-cheat plugins (like LILAC) can be sensitive to specific engine settings. While we try to monitor changes to popular servers and plugins to prevent false flags and conflicts, they can and do occur. For example, in version **26.1.17**, we removed the `host_limitlocal` setting change after it was found to trigger a false positive ban on servers running **LILAC 1.7.9+**.
+
+---
+
 ## Installation
 
-1. Download the VPKs from the [Latest Release](https://github.com/Xeogin/Zero-Effort-HL2DM-Config/releases/latest/).
-2. Place them in your `custom` directory:  
+1. **Download the VPKs** from the [Latest Release](https://github.com/Xeogin/Zero-Effort-HL2DM-Config/releases/latest/):
+    * **`0_effort_hl2dm_config.vpk`**: The core logic. Handles performance, networking, hardware profiles, and audio fixes.
+    * **`zo_hl2dm_ui_enhancements.vpk`**: Optional visual fixes. Handles menu updates, crosshair alignment, and the red screen fix.
+2. **Place them in your `custom` directory**:  
    `...\Steam\steamapps\common\Half-Life 2 Deathmatch\hl2mp\custom`
 
-### Included Files
-* **`0_effort_hl2dm_config.vpk`**: **The Core Logic.** Handles performance, networking, hardware profiles, and audio fixes.
-* **`zo_hl2dm_ui_enhancements.vpk`**: **Optional UI & Visuals.** Handles menu updates, icon consistency, crosshair fixes, and the red screen fix.
+Should you choose to pack the VPKs for yourself, I recommend using **Crowbar**.
 
 ---
 
