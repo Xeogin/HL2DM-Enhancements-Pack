@@ -2,12 +2,12 @@
 
 **A collection of essential performance tweaks, bug fixes, and UI improvements for Half-Life 2: Deathmatch.**
 
-This project bundles community-tested optimizations and fixes into a simple, "set-and-forget" package. Instead of messing with complex console commands or fragile config files, these enhancements load with the game to provide a smoother, more reliable experience for everyone.
+This project bundles community-tested optimizations and fixes into a simple 'set-and-forget' package. These enhancements load with the game to provide a smoother and more reliable experience without the need for complex console commands or fragile config files
 
 ## Features
 
 ### ⚡ Improved Performance & Logic
-Adjusts internal settings to improve stability and remove technical annoyances.
+Refines internal settings for better stability while removing common technical annoyances.
 * **Optimized Hardware Profiles:** Custom `dxsupport_override.cfg` fixes a hardcoding error that prevented "Very High" textures (`mat_picmip -1`) from being recommended. It also enables hidden impact effect cvars (`fx_drawimpact...`) and optimizes memory heap sizes.
 * **Explosion Audio Fix:** Integrated DSP fix that removes the ringing distortion effect from explosions. This prevents the common engine bug where the high-pitched "tinnitus" sound gets stuck.
 * **More Responsive Online Play:** Modernizes network settings to send and receive data more efficiently. This ensures your shots and movement register accurately while reducing connection stuttering and "rubber-banding."
