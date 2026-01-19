@@ -36,7 +36,7 @@ Simply put: No, though as with nearly everything in life, there’s a caveat to 
 
 These are standard overrides that use the game’s built-in engine commands. They do not modify memory or executables and are **100% VAC safe.**
 
-This project is also designed to respect server authority and is fully compatible with `sv_pure`. If a host configures their server to disallow any of this content, the game will simply use the stock files instead. Some server-side anti-cheat plugins (like LILAC) may be sensitive to specific engine settings. We monitor changes to popular servers and plugins to prevent false flags and conflicts, but these can and do still occur. For example, in version **26.1.17**, we removed the `host_limitlocal` setting change after it triggered a false positive ban on servers running **LILAC 1.7.9+**.
+This project is also designed to respect server authority and is fully compatible with `sv_pure`. If a host configures their server to disallow any of this content, the game will simply use the stock files instead. Some server-side anti-cheat plugins (like LILAC) may be sensitive to specific engine settings. While we try to monitor updates to popular servers and plugins, issues can still arise. For example, in version **26.1.17**, we removed our change to the host_limitlocal setting after it was found to trigger a false positive ban with **LILAC 1.7.9+**.
 
 ---
 
