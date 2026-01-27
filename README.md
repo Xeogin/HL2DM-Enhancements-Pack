@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Zero-Effort HL2DM Config
 
 **A collection of essential performance tweaks, bug fixes, and UI improvements for Half-Life 2: Deathmatch.**
