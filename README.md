@@ -7,7 +7,7 @@ This project packages community-developed optimizations and fixes into simple, d
 ## Philosophy
 * **No-Frills:** Neither pack contains any third-party assets (custom fonts, textures, etc.). All changes build upon the stock game files, with modifications kept to a minimum to preserve the original experience.
 * **Compatibility:** Both packs should work seamlessly with any customizations you have or may add later. Their naming conventions help ensure the config pack takes priority, while the UI enhancements pack’s modular design allows similar modifications, such as custom HUDs, to override conflicts while retaining the pack's remaining functionality.
-* **Transparency:** Every file in these packs is readable in plain text. In modified files, any original code that’s no longer used is commented out instead of removed, and additions are commented as “new” so you can easily tell what has been changed. For configs, each setting is accompanied by an explanatory comment and its default value.
+* **Transparency:** Every file in these packs is readable in plain text. In modified files, any original code that’s no longer used is commented out instead of removed, and additions are commented as 'new' so you can easily tell what has been changed. For configs, each setting is accompanied by an explanatory comment and its default value.
 
 ---
 
@@ -36,7 +36,7 @@ Simply put: No, though as with nearly everything in life, there’s a caveat to 
 
 These are standard overrides that use the game’s built-in engine commands. They do not modify memory or executables and are **100% VAC safe.**
 
-This project is also designed to respect server authority and is fully compatible with `sv_pure`. If a host configures their server to disallow any of this content, the game will simply use the stock files instead. Some server-side anti-cheat plugins (like LILAC) may be sensitive to specific engine settings. While we try to monitor updates to popular servers and plugins, issues can and do occasionally still arise. For example, in version **26.1.17**, we removed our change to the host_limitlocal setting after it was found to trigger a false positive ban with **LILAC 1.7.9+**.
+This project is designed to respect server authority and is fully compatible with all `sv_pure` settings and whitelist configurations. If a server host configures them to disallow any of the files modified via these packs, the game will use its stock files instead. Some server-side anti-cheat plugins, such as LILAC, may be sensitive to specific setting changes made by these packs. For instance, since version **26.1.17**, a previously introduced change to the `host_limitlocal` setting was removed because it triggered a ban from servers running **LILAC 1.7.9** and later.
 
 ---
 
