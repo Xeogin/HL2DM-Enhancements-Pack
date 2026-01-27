@@ -1,7 +1,7 @@
 theme: jekyll-theme-slate
 title: "Zero-Effort HL2DM Config"
 description: "A collection of essential performance tweaks, bug fixes, and UI improvements for Half-Life 2: Deathmatch"
-#show_downloads: false
+show_downloads: true
 lang: en-US
 github:
   zip_url: "https://github.com/Xeogin/Zero-Effort-HL2DM-Config/releases/latest/download/Zero-Effort-Pack.zip"
