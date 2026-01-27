@@ -1,13 +1,13 @@
 # Zero-Effort HL2DM Config
 
-**A collection of essential performance tweaks, bug fixes, and UI improvements for Half-Life 2: Deathmatch.**
+**A curated collection of essential performance tweaks, bug fixes, and UI improvements for Half-Life 2: Deathmatch**
 
-This project bundles community-tested optimizations and fixes into a simple “set-and-forget” package. These enhancements load with the game, providing a smoother, more reliable experience without complex console commands or fragile config files.
+This project packages community-developed optimizations and fixes into simple, drop-in files that automatically load with the game. Enjoy a cleaner experience and more reliable gameplay without needing to enter any console commands or manage lengthy configuration files.
 
 ## Philosophy
-* **Minimalist & Authentic:** This pack does not include any third-party assets like custom fonts, textures, etc. Everything is based on the files that come with the game and are given minimal modifications to keep the experience as true to stock as possible.
-* **Compatibility First:** This project avoids interfering with other mods. The file naming ensures the core config takes high priority for stability. UI enhancements are positioned for easy override by other modifications, which is expected with custom HUDs.
-* **Full Transparency:** Every file in this pack is readable in plain text. Additionally, every setting changed includes both an explanatory comment and what its default value was.
+* **No-Frills:** Neither pack contains any third-party assets (custom fonts, textures, etc.). All changes build upon the stock game files, with modifications kept to a minimum to preserve the original experience.
+* **Compatibility:** Both packs should work seamlessly with any customizations you have or may add later. Their naming conventions help ensure the config pack takes priority, while the UI enhancements pack’s modular design allows similar modifications, such as custom HUDs, to override conflicts while retaining the pack's remaining functionality.
+* **Transparency:** Every file in these packs is readable in plain text. In modified files, any original code that’s no longer used is commented out instead of removed, and additions are commented as “new” so you can easily tell what has been changed. For configs, each setting is accompanied by an explanatory comment and its default value.
 
 ---
 
