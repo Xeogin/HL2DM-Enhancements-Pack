@@ -66,7 +66,7 @@ If you want to pack the VPKs together yourself, I recommend using the **Crowbar*
 
 ## Credits & Acknowledgments
 
-* **mastercoms**: For picking up where Chris Fix left off with their **comfig** project, which has gone on to influence most of the setting choices used here.
+* **mastercoms**: For picking up where Chris Down's left off by providing their **comfig** project. It has gone on to influence most of the setting choices used here.
 * **Pred**: For the original **Plugin Menu fix** and insights for multiple other HUD fixes and ideas that they've provided in their **HL2 HUD Mod**.
 * **Diamphid**: For the original **Red Screen fix**, which has been re-applied to the modern files and reduced even further than their **Minimal** version.
 * **Jora**: For the **DSP fix** which has been integrated as is to the config pack. It's literally painful to go back after getting used to this.
