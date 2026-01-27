@@ -32,11 +32,11 @@ A companion VPK for non-intrusive improvements and visual fixes:
 
 ## “Can using this get me banned?”
 
-Simply put: No, though as with nearly everything in life, there’s a caveat to that.
+Simply put: **No**, though as with nearly everything in life, there’s a caveat to that.
 
-These are standard overrides that use the game’s built-in engine commands. They do not modify memory or executables and are **100% VAC safe.**
+These are standard overrides that use the game’s built-in engine commands. They do not modify memory or executables and are **100% VAC safe.** This project is designed to respect server authority and is fully compatible with all `sv_pure` settings and whitelist configurations. If a server host configures them to disallow any of the files modified via these packs, the game will use its stock files instead.
 
-This project is designed to respect server authority and is fully compatible with all `sv_pure` settings and whitelist configurations. If a server host configures them to disallow any of the files modified via these packs, the game will use its stock files instead. Some server-side anti-cheat plugins, such as LILAC, may be sensitive to specific setting changes made by these packs. For instance, since version **26.1.17**, a previously introduced change to the `host_limitlocal` setting was removed because it triggered a ban from servers running **LILAC 1.7.9** and later.
+**However**, some server-side anti-cheat plugins, such as LILAC, may be sensitive to specific setting changes made by these packs. For instance, since version **26.1.17**, a previously introduced change to the `host_limitlocal` setting was removed because it triggered a ban from servers running **LILAC 1.7.9** and later.
 
 ---
 
