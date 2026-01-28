@@ -50,24 +50,17 @@ If you want to pack the VPKs together yourself, I recommend using the **Crowbar*
 
 ## Screenshots
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <div style="flex: 1; min-width: 300px;">
-    <strong>Plugin Menu Fix</strong><br>
-    <img src="https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/plugin%20menu.jpg" alt="Plugin Menu">
-  </div>
-  <div style="flex: 1; min-width: 300px;">
-    <strong>Keyboard Bindings</strong><br>
-    <img src="https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/keyboard%20tab.gif" alt="Keyboard Tab">
-  </div>
-  <div style="flex: 1; min-width: 300px;">
-    <strong>Mouse & Quick Info</strong><br>
-    <img src="https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/mouse%20tab.jpg" alt="Mouse Tab">
-  </div>
-  <div style="flex: 1; min-width: 300px;">
-    <strong>Video Recommendations</strong><br>
-    <img src="https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/video%20tab.jpg" alt="Video Tab">
-  </div>
-</div>
+### Plugin Menu Fix
+![Plugin Menu](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/plugin%20menu.jpg)
+
+### Keyboard Bindings
+![Keyboard Tab](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/keyboard%20tab.gif)
+
+### Mouse & Quick Info
+![Mouse Tab](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/mouse%20tab.jpg)
+
+### Video Recommendations
+![Video Tab](https://raw.githubusercontent.com/Xeogin/HL2DM-Enhancements-Pack/main/Example%20Images/video%20tab.jpg)
 
 ---
 
