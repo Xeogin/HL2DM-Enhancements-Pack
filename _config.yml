@@ -3,17 +3,14 @@ remote_theme: pages-themes/slate
 title: "Zero-Effort HL2DM Config"
 show_downloads: false
 
-include:
-  - README.md
+# This tells Jekyll to look at README.md but name the output index.html
+permalink: /:path/
 
 defaults:
   - scope:
-      path: ""
-    values:
-      layout: default
-  - scope:
       path: "README.md"
     values:
+      layout: default
       permalink: /index.html
 
 plugins:
