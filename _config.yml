@@ -1,15 +1,19 @@
 #theme: jekyll-theme-slate
 remote_theme: pages-themes/slate
 title: "Zero-Effort HL2DM Config"
+description: "A drop-in collection of essential performance tweaks, bug fixes, and UI improvements for Half-Life 2: Deathmatch"
 show_downloads: false
 
-# Ensures Jekyll can see the README in the root
+# This block fixes the "Maintained by" and "View on GitHub" links
+github:
+  owner_name: "Xeogin"
+  repository_name: "Zero-Effort-HL2DM-Config"
+  repository_url: "https://github.com/Xeogin/Zero-Effort-HL2DM-Config"
+  is_project_page: true
+  zip_url: "https://github.com/Xeogin/Zero-Effort-HL2DM-Config/releases/latest/download/Zero-Effort-Pack.zip"
+
 include: [README.md]
 
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
-
-github:
-  is_project_page: true
-  zip_url: "https://github.com/Xeogin/Zero-Effort-HL2DM-Config/releases/latest/download/Zero-Effort-Pack.zip"
