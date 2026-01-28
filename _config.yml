@@ -1,3 +1,4 @@
+include: ["README.md"]
 #theme: jekyll-theme-slate
 remote_theme: pages-themes/slate
 title: "Zero-Effort HL2DM Config"
