@@ -3,6 +3,9 @@ remote_theme: pages-themes/slate
 title: "Zero-Effort HL2DM Config"
 show_downloads: false
 
+# Ensures Jekyll can see the README in the root
+include: [README.md]
+
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
