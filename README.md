@@ -1,4 +1,4 @@
-This project packages community-developed optimizations and fixes into simple, drop-in files that automatically load with the game. Enjoy a cleaner experience and more reliable gameplay without needing to enter any console commands or manage lengthy configuration files.
+This project packages community-developed optimizations and fixes into simple, drop-in files that automatically load with the game. Enjoy a cleaner experience and more reliable gameplay without needing to enter any console commands or manage lengthy configuration files!
 
 ## Philosophy
 * **No-Frills:** Neither pack contains any third-party assets (custom fonts, textures, etc.). All changes build upon the stock game files, with modifications kept to a minimum to preserve the original experience.
