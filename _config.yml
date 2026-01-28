@@ -1,8 +1,17 @@
-include: ["README.md"]
 #theme: jekyll-theme-slate
 remote_theme: pages-themes/slate
 title: "Zero-Effort HL2DM Config"
 show_downloads: false
+
+# This tells Jekyll to process README.md and serve it as the homepage
+include:
+  - README.md
+
+defaults:
+  - scope:
+      path: "README.md"
+    values:
+      permalink: /index.html
 
 plugins:
   - jekyll-remote-theme
