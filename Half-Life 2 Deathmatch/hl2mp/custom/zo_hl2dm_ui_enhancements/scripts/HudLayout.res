@@ -68,30 +68,34 @@
 	HudVoiceStatus
 	{
 		"fieldName" "HudVoiceStatus"
-		"visible" "1"
-		"enabled" "1"
-		"xpos" "r145"
-		"ypos" "0"
-		"wide" "145"
-		"tall" "400"
+		"visible" 			"1"
+		"enabled" 			"1"
+		"xpos" 				"r145"
+		"ypos" 				"0"
+		"wide" 				"145"
+		"tall" 				"400"
 
-		"item_wide"	"135"
+		"item_wide" 		"140" 	//Def. 135
 		
-		"show_avatar"		"0"
+		"show_avatar" 		"1" 	// Def. 0
+		"show_friend" 		"0" 	// Def. 1
+		"avatar_xpos" 		"16" 	// new
+		"avatar_wide" 		"16" 	// new
+		"avatar_tall" 		"16" 	// new
 		
 		"show_dead_icon"	"1"
-		"dead_xpos"			"1"
+		"dead_xpos"			"0" 	// Def. 1
 		"dead_ypos"			"0"
 		"dead_wide"			"16"
 		"dead_tall"			"16"
 		
-		"show_voice_icon"	"1"
+		"show_voice_icon"	"0" 	// Def. 1
 		"icon_ypos"			"0"
 		"icon_xpos"			"15"
 		"icon_tall"			"16"
 		"icon_wide"			"16"
 		
-		"text_xpos"			"33"
+		"text_xpos"			"36" 	// Def. 33
 	}
 	HudSuit [!$DECK]
 	{
